@@ -24,8 +24,8 @@ object PreviewProvider {
 
     val users = listOf<User>(
         User(
-            id = "34njkdsf",
-            password = "fujiwefh3k4",
+            id = "test1",
+            password = "test1pw",
             name = "임희진",
             phoneNumber = "010-1234-9876",
             email = null,
@@ -33,8 +33,8 @@ object PreviewProvider {
             postDatas = posts
         ),
         User(
-            id = "14n4dfjsf",
-            password = "fearujfh4",
+            id = "test2",
+            password = "test2pw",
             name = "양동원",
             phoneNumber = "010-2234-7876",
             email = "example@gmail.com",
@@ -42,8 +42,8 @@ object PreviewProvider {
             postDatas = posts
         ),
         User(
-            id = "134njjddsf",
-            password = "fuji43fh3k4",
+            id = "test3",
+            password = "test3pw",
             name = "김태영",
             phoneNumber = "010-1234-9876",
             email = null,
