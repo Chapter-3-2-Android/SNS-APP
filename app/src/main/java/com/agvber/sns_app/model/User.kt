@@ -1,5 +1,9 @@
 package com.agvber.sns_app.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class User(
     val id: String,
     val password: String,
@@ -8,4 +12,4 @@ data class User(
     var email: String?,
     var bio: String?,
     var postDatas: List<Post>
-)
+): Parcelable
