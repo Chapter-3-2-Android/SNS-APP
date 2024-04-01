@@ -8,7 +8,7 @@ import kotlin.random.Random
 
 @Parcelize
 data class Post(
-    val userId: Int,
+    val userId: String,
     val id: Int,
     @DrawableRes val image: Int,
     val content: String, // Lorem ipsum dolor

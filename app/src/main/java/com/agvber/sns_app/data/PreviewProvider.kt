@@ -9,21 +9,21 @@ object PreviewProvider {
 
     val posts = listOf<Post>(
         Post(
-            userId = 1,
+            userId = "test1",
             id = 1,
             image = R.drawable.ic_launcher_foreground,
             content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt #hashtag",
             time = LocalDateTime.now()
         ),
         Post(
-            userId = 2,
+            userId = "test2",
             id = 2,
             image = R.drawable.ic_launcher_foreground,
             content = "Digital goodies designer @pixsellz \nEverything is designed.",
             time = LocalDateTime.now()
         ),
         Post(
-            userId = 10,
+            userId = "test3",
             id = 3,
             image = R.drawable.ic_launcher_foreground,
             content = "Digital goodies designer @pixsellz \nEverything is designed.",
