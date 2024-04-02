@@ -214,4 +214,5 @@
             android:text="30 minutes ago"
             android:layout_marginTop="6dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
