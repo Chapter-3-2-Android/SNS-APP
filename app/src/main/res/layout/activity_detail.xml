@@ -128,7 +128,7 @@
             android:id="@+id/tv_numLikes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100 Likes"
+            android:text="@string/numLikes"
             app:layout_constraintStart_toStartOf="@id/tv_postContent"
             app:layout_constraintTop_toBottomOf="@id/iv_postHeart"
             android:layout_marginTop="10dp"/>

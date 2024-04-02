@@ -44,15 +44,15 @@ class DetailActivity : AppCompatActivity() {
         val ivPostHeart = binding.ivPostHeart
         val tvNumLikes = binding.tvNumLikes
         val firstNumLikes = PreviewProvider.posts[postDataIndex].like
-
+        val likes = " " + getString(R.string.numLikes)
         ivPostHeart.setOnClickListener {
             if (isLike) {
                 ivPostHeart.setImageResource(R.drawable.ic_heart_selected)
-                tvNumLikes.text = (firstNumLikes + 1).toString()
+                tvNumLikes.text = (firstNumLikes + 1).toString() + likes
                 isLike = false
             } else {
                 ivPostHeart.setImageResource(R.drawable.ic_heart_none)
-                tvNumLikes.text = firstNumLikes.toString()
+                tvNumLikes.text = firstNumLikes.toString() +likes
                 isLike = true
             }
         }
@@ -84,19 +84,32 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
-    private fun setPostDataToUI(index: Int){ // LocalDateTime 사용 필, string.xml에 NumLikes 뒤 문장 필
+    private fun setPostDataToUI(index: Int) { // LocalDateTime 사용 필, string.xml에 NumLikes 뒤 문장 필
         val postData = PreviewProvider.posts[index]
         val userData = PreviewProvider.users[index]
         binding.ivMainImage.setImageResource(postData.image)
         binding.tvPostContent.text = userData.name + " " + postData.content
-        binding.tvNumLikes.text = postData.like.toString()
+
+        val likes = " " + getString(R.string.numLikes)
+
+        binding.tvNumLikes.text = postData.like.toString() + likes
 
         val currentTime = LocalDateTime.now()
-        val duration = Duration.between(postData.time, currentTime);
-        val daysDiff = duration.toDays()
-        val timeDiff = duration.toDays()
-        val minDiff = duration.toMinutes()
+        val duration = Duration.between(postData.time, currentTime)
+        val daysDiff = duration.toDays() % 365
+        val hourDiff = duration.toHours() % 24
+        val minDiff = duration.toMinutes() % 60
 
-        binding.tvPostedTime.text = "${daysDiff} days ${timeDiff} times, ${minDiff} minutes ago"
+        var timeText = ""
+        if (daysDiff > 0) {
+            timeText += "${daysDiff} days "
+        }
+        if (hourDiff > 0) {
+            timeText += "${hourDiff} hours "
+        }
+        if (minDiff > 0) {
+            timeText += "${minDiff} minutes "
+        }
+        binding.tvPostedTime.text = "$timeText ago"
     }
 }
