@@ -16,7 +16,7 @@
             android:name=".LogInActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".DetailActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.SNSAPP">

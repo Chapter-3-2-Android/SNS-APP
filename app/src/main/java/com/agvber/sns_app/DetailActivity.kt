@@ -50,7 +50,7 @@ class DetailActivity : AppCompatActivity() {
                 isLike = false
             } else {
                 ivPostHeart.setImageResource(R.drawable.ic_heart_none)
-                tvNumLikes.text = firstNumLikes.toString() +likes
+                tvNumLikes.text = firstNumLikes.toString() + likes
                 isLike = true
             }
         }
@@ -100,13 +100,12 @@ class DetailActivity : AppCompatActivity() {
 
         var timeText = ""
         if (daysDiff > 0) {
-            timeText += "${daysDiff} days "
-        }
-        if (hourDiff > 0) {
-            timeText += "${hourDiff} hours "
-        }
-        if (minDiff > 0) {
-            timeText += "${minDiff} minutes "
+            if (daysDiff > 30) timeText = "${daysDiff / 30} months"
+            else timeText = "${daysDiff} days "
+        } else if (hourDiff > 0) {
+            timeText = "${hourDiff} hours "
+        } else if (minDiff > 0) {
+            timeText = "${minDiff} minutes "
         }
         binding.tvPostedTime.text = "$timeText ago"
     }

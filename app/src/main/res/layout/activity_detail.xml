@@ -155,7 +155,7 @@
             app:layout_constraintBottom_toBottomOf="@id/tv_postContent"
             android:layout_marginEnd="-2dp"
             android:text="more"
-            android:visibility="visible"/>
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/tv_viewNum"
