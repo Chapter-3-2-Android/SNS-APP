@@ -12,7 +12,7 @@ import com.agvber.sns_app.databinding.ActivityMainBinding
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
-
+    private var likeBool = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -21,7 +21,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         commentReaction()
-
+        clickLike()
         postMore()
     }
 
@@ -38,19 +38,21 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun clickLike() { //좋아요 누를 시 이벤트, 아직 미구현
+    private fun clickLike() { //좋아요 누를 시 이벤트, tv_NumLikes 뒤에 string.xml에 정의해서 붙이기
         val ivPostHeart = binding.ivPostHeart
+        val tvNumLikes = binding.tvNumLikes
+        val firstNumLikes = tvNumLikes.text.split(" ").first().toInt()
 
         ivPostHeart.setOnClickListener {
-            val currentIcon = ivPostHeart.drawable.constantState
-            val heartNoneIcon = ContextCompat.getDrawable(
-                this@DetailActivity,
-                R.drawable.ic_heart_none
-            )?.constantState
-            if (currentIcon?.equals(heartNoneIcon) == true) {
+            if (likeBool) {
                 ivPostHeart.setImageResource(R.drawable.ic_heart_selected)
-            } else ivPostHeart.setImageResource(R.drawable.ic_heart_none)
-//            ivPostHeart.setImageResource(R.drawable.ic_heart_selected)
+                tvNumLikes.text = (firstNumLikes + 1).toString()
+                likeBool = false
+            } else {
+                ivPostHeart.setImageResource(R.drawable.ic_heart_none)
+                tvNumLikes.text = firstNumLikes.toString()
+                likeBool = true
+            }
         }
     }
 
@@ -65,7 +67,7 @@ class DetailActivity : AppCompatActivity() {
                     tvMorePost.visibility = View.VISIBLE
 
                     tvMorePost.setOnClickListener {
-                        if(tvMorePost.text == "more") {
+                        if (tvMorePost.text == "more") {
                             tvPost.maxLines = Int.MAX_VALUE
                             tvMorePost.text = "fold"
                         } else {

@@ -89,7 +89,7 @@
         <ImageView
             android:id="@+id/iv_postHeart"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:src="@drawable/ic_heart_none"
             app:layout_constraintStart_toStartOf="@id/tv_postedPost"
             app:layout_constraintTop_toTopOf="parent"
