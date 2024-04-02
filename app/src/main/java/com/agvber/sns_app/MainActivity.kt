@@ -21,18 +21,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    init {
-
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setUserStorage()
         initView()
         setAdapter()
-        setUserStorage()
     }
 
     private fun initView() {
@@ -59,14 +55,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initUserArea() {
-        binding.run {
-            binding.tvUsernameTitle.text = user.name
+        with(binding) {
+            tvUsernameTitle.text = user.name
 
             civProfileImage.setImageResource(user.image)
-            binding.tvPosts.text = posts.size.toString()
+            tvPosts.text = posts.size.toString()
 
-            binding.tvUsernameSub.text = user.name
-            binding.tvBio.text = user.bio
+            tvUsernameSub.text = user.name
+            tvBio.text = user.bio
+        }
+
+        binding.run {
+            tvUsernameTitle.text = user.name
+
+            civProfileImage.setImageResource(user.image)
+            tvPosts.text = posts.size.toString()
+
+            tvUsernameSub.text = user.name
+            tvBio.text = user.bio
         }
     }
 
