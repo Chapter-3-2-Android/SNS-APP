@@ -14,4 +14,4 @@ data class User(
     var email: String?,
     var bio: String?,
     var postDatas: List<Post>
-): Parcelable
+) : Parcelable
