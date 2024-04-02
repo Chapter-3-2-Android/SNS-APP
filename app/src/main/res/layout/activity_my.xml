@@ -11,11 +11,10 @@
 
 
 
-
     <!-- 최상단 -->
 
     <View
-        android:id="@+id/grayview"
+        android:id="@+id/view_gray"
         android:layout_width="match_parent"
         android:layout_height="88dp"
         android:background="#FAFAFA"
@@ -32,9 +31,9 @@
         android:textColor="#262626"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/grayview"
-        app:layout_constraintEnd_toEndOf="@+id/grayview"
-        app:layout_constraintStart_toStartOf="@+id/grayview" />
+        app:layout_constraintBottom_toBottomOf="@+id/view_gray"
+        app:layout_constraintEnd_toEndOf="@+id/view_gray"
+        app:layout_constraintStart_toStartOf="@+id/view_gray" />
 
     <TextView
         android:id="@+id/btn_cancel"
@@ -44,8 +43,8 @@
         android:layout_marginBottom="16dp"
         android:text="Cancel"
         android:textColor="#262626"
-        app:layout_constraintBottom_toBottomOf="@+id/grayview"
-        app:layout_constraintStart_toStartOf="@+id/grayview" />
+        app:layout_constraintBottom_toBottomOf="@+id/view_gray"
+        app:layout_constraintStart_toStartOf="@+id/view_gray" />
 
     <TextView
         android:id="@+id/btn_done"
@@ -55,12 +54,8 @@
         android:layout_marginBottom="16dp"
         android:text="Done"
         android:textColor="#3897F0"
-        app:layout_constraintBottom_toBottomOf="@+id/grayview"
-        app:layout_constraintEnd_toEndOf="@+id/grayview" />
-
-
-
-
+        app:layout_constraintBottom_toBottomOf="@+id/view_gray"
+        app:layout_constraintEnd_toEndOf="@+id/view_gray" />
 
     <!-- 이미지 등록 영역 -->
 
@@ -71,7 +66,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/grayview"
+        app:layout_constraintTop_toBottomOf="@+id/view_gray"
         app:srcCompat="@drawable/img_profile1" />
 
     <TextView
@@ -95,14 +90,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_profilechange" />
 
-
-
-
-
     <!-- 이름 수정 -->
 
     <LinearLayout
-        android:id="@+id/linear1"
+        android:id="@+id/ll_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -118,6 +109,7 @@
             android:layout_weight="1"
             android:text="Name"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:textColor="#262626"
             android:textSize="18sp"
              />
@@ -135,24 +127,24 @@
     </LinearLayout>
 
 
-
     <!-- 아이디 수정 -->
 
     <LinearLayout
-        android:id="@+id/linear2"
+        android:id="@+id/ll_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear1">
+        app:layout_constraintTop_toBottomOf="@+id/ll_1">
 
         <TextView
             android:id="@+id/tv_id"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:text="Id"
             android:textColor="#262626"
             android:textSize="18sp"
@@ -170,19 +162,17 @@
     </LinearLayout>
 
 
-
-
     <!-- 바이오 수정 -->
 
     <LinearLayout
-        android:id="@+id/linear3"
+        android:id="@+id/ll_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear2">
+        app:layout_constraintTop_toBottomOf="@+id/ll_2">
 
 
         <TextView
@@ -193,6 +183,7 @@
             android:textColor="#262626"
             android:textSize="18sp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_weight="1"/>
 
 
@@ -208,19 +199,17 @@
     </LinearLayout>
 
 
-
     <!-- 이메일 수정 -->
 
     <LinearLayout
-        android:id="@+id/linear4"
+        android:id="@+id/ll_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear3">
-
+        app:layout_constraintTop_toBottomOf="@+id/ll_3">
 
         <TextView
             android:id="@+id/tv_email"
@@ -230,6 +219,7 @@
             android:textColor="#262626"
             android:textSize="18sp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_weight="1" />
 
         <EditText
@@ -247,14 +237,14 @@
     <!-- 전화번호 수정 -->
 
     <LinearLayout
-        android:id="@+id/linear5"
+        android:id="@+id/ll_5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear4">
+        app:layout_constraintTop_toBottomOf="@+id/ll_4">
 
 
         <TextView
@@ -265,6 +255,7 @@
             android:textColor="#262626"
             android:textSize="18sp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_weight="1"/>
 
         <EditText
@@ -277,9 +268,7 @@
             android:layout_weight="3"/>
 
 
-
     </LinearLayout>
-
 
     <TextView
         android:id="@+id/btn_switchtologin"
@@ -291,7 +280,7 @@
         android:text="Switch to Log-in Page"
         android:textColor="#3897F0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear5" />
+        app:layout_constraintTop_toBottomOf="@+id/ll_5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
