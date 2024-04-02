@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -63,6 +64,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cl_username_main">
 
+            <!--    Circle Profile Image   -->
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/civ_profileImage"
                 android:layout_width="90dp"
@@ -74,7 +76,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
+            <!--    Posts, Followers, Following   -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_"
                 android:layout_width="0dp"
@@ -86,13 +88,13 @@
                 app:layout_constraintStart_toEndOf="@+id/civ_profileImage"
                 app:layout_constraintTop_toTopOf="parent">
 
-
+                <!--     Posts     -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_postsCount"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/cl_fllowersCount"
+                    app:layout_constraintEnd_toStartOf="@+id/cl_followersCount"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_chainStyle="spread"
                     app:layout_constraintStart_toStartOf="parent"
@@ -126,9 +128,9 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+                <!--     Fllowers     -->
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_fllowersCount"
+                    android:id="@+id/cl_followersCount"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -138,20 +140,20 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/tv_fllowers_value"
+                        android:id="@+id/tv_followers_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="5,678"
                         android:textSize="14sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toTopOf="@+id/tv_fllowers_string"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_followers_string"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_chainStyle="packed" />
 
                     <TextView
-                        android:id="@+id/tv_fllowers_string"
+                        android:id="@+id/tv_followers_string"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Followers"
@@ -159,11 +161,11 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_fllowers_value" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_followers_value" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+                <!--     Following     -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_following"
                     android:layout_width="0dp"
@@ -171,7 +173,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/cl_fllowersCount"
+                    app:layout_constraintStart_toEndOf="@+id/cl_followersCount"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
@@ -203,6 +205,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <!--    Username     -->
         <TextView
             android:id="@+id/tv_username_sub"
             android:layout_width="match_parent"
@@ -213,6 +216,7 @@
             android:textSize="13sp"
             app:layout_constraintTop_toBottomOf="@+id/cl_profile"/>
 
+        <!--    Category     -->
         <TextView
             android:id="@+id/tv_category"
             android:layout_width="match_parent"
@@ -224,6 +228,7 @@
             android:textSize="13sp"
             app:layout_constraintTop_toBottomOf="@+id/tv_username_sub"/>
 
+        <!--    Bio     -->
         <TextView
             android:id="@+id/tv_bio"
             android:layout_width="match_parent"
@@ -253,6 +258,7 @@
 
     <!--    </FrameLayout>-->
 
+        <!--    edit Profile    -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_editProfile"
             android:layout_width="match_parent"
@@ -276,8 +282,8 @@
 
             android:contextClickable="true"
             android:stretchMode="columnWidth"
-            android:horizontalSpacing="0dp"
-            android:verticalSpacing="0dp"
+            android:horizontalSpacing="-10dp"
+            android:verticalSpacing="-10dp"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

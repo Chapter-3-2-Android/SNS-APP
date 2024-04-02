@@ -46,9 +46,9 @@ class MainActivity : AppCompatActivity() {
 
             val user = PreviewProvider.users.filter {
                 it.id == userid
-            }
+            } as User
 
-            MemoryStorage.setUser(user as User)
+            MemoryStorage.setUser(user)
         } else { // 로그인 페이지에서 userID 값을 넘겨받지 못한 경우 default 설정
             MemoryStorage.setUser(PreviewProvider.users[0])
         }
