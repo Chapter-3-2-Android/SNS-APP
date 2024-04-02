@@ -213,6 +213,7 @@
             app:layout_constraintTop_toBottomOf="@id/iv_commentProfile"
             android:text="30 minutes ago"
             android:layout_marginTop="6dp"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
