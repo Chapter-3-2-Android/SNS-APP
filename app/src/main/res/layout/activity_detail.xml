@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:src="@drawable/ic_heart_none"
-            app:layout_constraintStart_toStartOf="@id/tv_postedPost"
+            app:layout_constraintStart_toStartOf="@id/tv_postContent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="10dp"/>
 
@@ -129,17 +129,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="100 Likes"
-            app:layout_constraintStart_toStartOf="@id/tv_postedPost"
+            app:layout_constraintStart_toStartOf="@id/tv_postContent"
             app:layout_constraintTop_toBottomOf="@id/iv_postHeart"
             android:layout_marginTop="10dp"/>
 
         <TextView
-            android:id="@+id/tv_postedPost"
+            android:id="@+id/tv_postContent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="UserName .....testtesttesttesttesttes ttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest testtes ttesttesttesttesttestt esttest"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf = "@id/tv_postedPostMore"
+            app:layout_constraintEnd_toStartOf = "@id/tv_postContentMore"
             app:layout_constraintTop_toBottomOf="@id/tv_numLikes"
             android:layout_marginStart="12dp"
             android:maxLines="2"
@@ -148,11 +148,11 @@
 
 
         <TextView
-            android:id="@+id/tv_postedPostMore"
+            android:id="@+id/tv_postContentMore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@id/iv_bookMark"
-            app:layout_constraintBottom_toBottomOf="@id/tv_postedPost"
+            app:layout_constraintBottom_toBottomOf="@id/tv_postContent"
             android:layout_marginEnd="-2dp"
             android:text="more"
             android:visibility="visible"/>
@@ -162,8 +162,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="view all ..."
-            app:layout_constraintStart_toStartOf="@id/tv_postedPost"
-            app:layout_constraintTop_toBottomOf="@id/tv_postedPost"
+            app:layout_constraintStart_toStartOf="@id/tv_postContent"
+            app:layout_constraintTop_toBottomOf="@id/tv_postContent"
             android:layout_marginTop="6dp"/>
 
         <ImageView
@@ -171,7 +171,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/story_ring"
-            app:layout_constraintStart_toStartOf="@id/tv_postedPost"
+            app:layout_constraintStart_toStartOf="@id/tv_postContent"
             app:layout_constraintTop_toBottomOf="@id/tv_viewNum"
             android:layout_marginTop="6dp"/>
 
@@ -223,7 +223,7 @@
             android:id="@+id/tv_postedTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/tv_postedPost"
+            app:layout_constraintStart_toStartOf="@id/tv_postContent"
             app:layout_constraintTop_toBottomOf="@id/iv_commentProfile"
             android:text="30 minutes ago"
             android:layout_marginTop="6dp"/>

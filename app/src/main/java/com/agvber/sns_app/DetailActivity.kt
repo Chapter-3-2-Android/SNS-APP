@@ -2,17 +2,16 @@ package com.agvber.sns_app
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivityDetailBinding
-import com.agvber.sns_app.databinding.ActivityMainBinding
+import java.time.Duration
+import java.time.LocalDateTime
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
-    private var likeBool = true
+    private var isLike = true
+    private val postDataIndex by lazy { intent.getIntExtra("postIndex", 0) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -22,7 +21,10 @@ class DetailActivity : AppCompatActivity() {
 
         commentReaction()
         clickLike()
-        postMore()
+        postContentMore()
+
+        setPostDataToUI(postDataIndex)
+
     }
 
     private fun commentReaction() { //댓글에서 하트, 박수 클릭 시 추가
@@ -41,24 +43,24 @@ class DetailActivity : AppCompatActivity() {
     private fun clickLike() { //좋아요 누를 시 이벤트, tv_NumLikes 뒤에 string.xml에 정의해서 붙이기
         val ivPostHeart = binding.ivPostHeart
         val tvNumLikes = binding.tvNumLikes
-        val firstNumLikes = tvNumLikes.text.split(" ").first().toInt()
+        val firstNumLikes = PreviewProvider.posts[postDataIndex].like
 
         ivPostHeart.setOnClickListener {
-            if (likeBool) {
+            if (isLike) {
                 ivPostHeart.setImageResource(R.drawable.ic_heart_selected)
                 tvNumLikes.text = (firstNumLikes + 1).toString()
-                likeBool = false
+                isLike = false
             } else {
                 ivPostHeart.setImageResource(R.drawable.ic_heart_none)
                 tvNumLikes.text = firstNumLikes.toString()
-                likeBool = true
+                isLike = true
             }
         }
     }
 
-    private fun postMore() { // 게시된 글 더보기
-        val tvPost = binding.tvPostedPost
-        val tvMorePost = binding.tvPostedPostMore
+    private fun postContentMore() { // 게시된 글 더보기
+        val tvPost = binding.tvPostContent
+        val tvMorePost = binding.tvPostContentMore
 
         tvPost.post {
             val lineCount = tvPost.layout.lineCount
@@ -77,9 +79,24 @@ class DetailActivity : AppCompatActivity() {
                     }
                 }
             }
-
         }
 
 
+    }
+
+    private fun setPostDataToUI(index: Int){ // LocalDateTime 사용 필, string.xml에 NumLikes 뒤 문장 필
+        val postData = PreviewProvider.posts[index]
+        val userData = PreviewProvider.users[index]
+        binding.ivMainImage.setImageResource(postData.image)
+        binding.tvPostContent.text = userData.name + " " + postData.content
+        binding.tvNumLikes.text = postData.like.toString()
+
+        val currentTime = LocalDateTime.now()
+        val duration = Duration.between(postData.time, currentTime);
+        val daysDiff = duration.toDays()
+        val timeDiff = duration.toDays()
+        val minDiff = duration.toMinutes()
+
+        binding.tvPostedTime.text = "${daysDiff} days ${timeDiff} times, ${minDiff} minutes ago"
     }
 }
