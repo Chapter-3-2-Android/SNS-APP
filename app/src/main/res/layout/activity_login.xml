@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <View
         android:id="@+id/view_1"
@@ -13,11 +13,11 @@
         android:layout_marginStart="28dp"
         android:layout_marginBottom="50dp"
         android:background="#34000000"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintStart_toEndOf="@+id/textView4" />
+        app:layout_constraintBottom_toTopOf="@+id/tv_signup"
+        app:layout_constraintStart_toEndOf="@+id/tv_or" />
 
     <ImageView
-        android:id="@+id/img_logo"
+        android:id="@+id/iv_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
@@ -43,10 +43,10 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/et_password"
         android:layout_width="343dp"
         android:layout_height="44dp"
         android:layout_marginTop="12dp"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_id" />
 
     <android.widget.Button
-        android:id="@+id/button"
+        android:id="@+id/btn_login"
         android:layout_width="343dp"
         android:layout_height="44dp"
         android:layout_marginTop="63dp"
@@ -70,46 +70,46 @@
         android:text="Log in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_ps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
         android:text="Forgot password?"
         android:textColor="#3797EF"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/et_password"
         app:layout_constraintVertical_bias="0.558" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tv_or"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:text="OR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_have"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
         android:text="Don’t have an account?"
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
-        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_signup"
+        app:layout_constraintEnd_toStartOf="@+id/tv_signup"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_or"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_signup"
         android:layout_width="54dp"
         android:layout_height="15dp"
         android:layout_marginStart="10dp"
@@ -118,8 +118,8 @@
         android:textColor="#3797EF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toEndOf="@+id/tv_have"
+        app:layout_constraintTop_toBottomOf="@+id/tv_or" />
 
     <View
         android:id="@+id/view_2"
@@ -128,7 +128,7 @@
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="50dp"
         android:background="#34000000"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toStartOf="@+id/textView4" />
+        app:layout_constraintBottom_toTopOf="@+id/tv_have"
+        app:layout_constraintEnd_toStartOf="@+id/tv_or" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
