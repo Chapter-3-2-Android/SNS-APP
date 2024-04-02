@@ -170,7 +170,7 @@
             app:layout_constraintStart_toEndOf="@id/iv_commentProfile"
             app:layout_constraintTop_toTopOf="@id/iv_commentProfile"
             app:layout_constraintEnd_toStartOf="@id/tv_textHeart"
-            android:background="null"
+            android:background="@null"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"/>
 
@@ -178,7 +178,7 @@
             android:id="@+id/tv_textHeart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="❤️"
+            android:text="@string/text_heart"
             app:layout_constraintBottom_toBottomOf="@id/iv_commentProfile"
             app:layout_constraintTop_toTopOf="@id/iv_commentProfile"
             app:layout_constraintEnd_toStartOf="@id/tv_textClip"
@@ -189,7 +189,7 @@
             android:id="@+id/tv_textClip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🙌"
+            android:text="@string/text_clip"
             app:layout_constraintBottom_toBottomOf="@id/iv_commentProfile"
             app:layout_constraintEnd_toStartOf="@id/iv_commentAddreaction"
             app:layout_constraintTop_toTopOf="@id/iv_commentProfile"
