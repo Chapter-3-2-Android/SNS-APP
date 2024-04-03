@@ -11,7 +11,7 @@ class LogInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLogInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+//
 //        val signupIntent = Intent(this, SIgnupActivity::class.java)
 //        startActivity(signupIntent)
 //

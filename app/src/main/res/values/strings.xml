@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SNS-APP</string>
     <string name="title_activity_main">MainActivity</string>
-</resources>
+
+
+    <string name="text_heart">️️️❤️</string>
+    <string name="text_clip">🙌</string>
+    <string name="numLikes">Likes</string>
+</resources>qQ

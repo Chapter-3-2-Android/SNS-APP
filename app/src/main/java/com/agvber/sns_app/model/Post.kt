@@ -14,4 +14,4 @@ data class Post(
     val content: String, // Lorem ipsum dolor
     val time: LocalDateTime,
     var like: Int = Random.nextInt(1, 100)
-): Parcelable
+) : Parcelable
