@@ -128,6 +128,7 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
                     if (daysDiff >= 30) append("${daysDiff / 30} months")
                     else append("$daysDiff days ")
                 }
+
                 (hourDiff > 0) -> append("$hourDiff hours ")
                 (minDiff > 0) -> append("$minDiff minutes ")
             }
