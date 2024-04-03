@@ -1,4 +1,4 @@
-package com.agvber.sns_app.adapter
+package com.agvber.sns_app.ui.detail
 
 import android.content.Context
 import android.graphics.Typeface

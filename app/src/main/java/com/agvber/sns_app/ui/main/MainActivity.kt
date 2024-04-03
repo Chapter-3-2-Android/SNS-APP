@@ -1,16 +1,16 @@
-package com.agvber.sns_app.ui
+package com.agvber.sns_app.ui.main
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.AdapterView.OnItemClickListener
 import androidx.appcompat.app.AppCompatActivity
 import com.agvber.sns_app.MemoryStorage
-import com.agvber.sns_app.R
-import com.agvber.sns_app.adapter.PostAdapter
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivityMainBinding
 import com.agvber.sns_app.model.Post
 import com.agvber.sns_app.model.User
+import com.agvber.sns_app.ui.MyActivity
+import com.agvber.sns_app.ui.detail.DetailActivity
 
 
 class MainActivity : AppCompatActivity() {

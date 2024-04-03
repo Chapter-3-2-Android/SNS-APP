@@ -1,9 +1,7 @@
-package com.agvber.sns_app.ui
+package com.agvber.sns_app.ui.detail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.agvber.sns_app.R
-import com.agvber.sns_app.adapter.DetailListViewAdapter
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivityDetailBinding
 
