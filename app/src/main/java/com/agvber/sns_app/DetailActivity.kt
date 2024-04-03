@@ -100,7 +100,7 @@ class DetailActivity : AppCompatActivity() {
             StyleSpan(Typeface.BOLD),
             contentStartIndex,
             contentEndIndex,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            Spannable.SPAN_INCLUSIVE_INCLUSIVE
         )
         binding.tvPostContent.text = contentSpannableString
 
@@ -134,7 +134,7 @@ class DetailActivity : AppCompatActivity() {
             StyleSpan(Typeface.BOLD),
             sponsorStartIndex,
             sponsorEndIndex,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            Spannable.SPAN_INCLUSIVE_INCLUSIVE
         )
         binding.tvSponsor.text = sponsorSpannableString
     }
