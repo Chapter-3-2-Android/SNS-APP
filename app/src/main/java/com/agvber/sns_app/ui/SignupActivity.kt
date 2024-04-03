@@ -20,15 +20,24 @@ class SignupActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.confirmBtn.setOnClickListener {
-            if (!signUpData.checkStatus()) {
-                Toast.makeText(this@SignupActivity, "에러가 발생하였습니다", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            MemoryStorage.setUser(signUpData.asExternalModel())
-            finish()
+            eventSuccess()
+            eventFail()
         }
 
         watchEditText()
+    }
+
+    private fun eventSuccess() {
+        if (signUpData.checkStatus()) {
+            MemoryStorage.setUser(signUpData.asExternalModel())
+            finish()
+        }
+    }
+
+    private fun eventFail() {
+        if (!signUpData.checkStatus()) {
+            Toast.makeText(this@SignupActivity, "에러가 발생하였습니다", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun watchEditText() {
