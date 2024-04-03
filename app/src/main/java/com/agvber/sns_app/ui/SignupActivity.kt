@@ -8,6 +8,7 @@ import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivitySignupBinding
 import com.agvber.sns_app.model.User
+import kotlin.random.Random
 
 class SignupActivity : AppCompatActivity() {
     companion object {
@@ -89,6 +90,7 @@ private fun SignupData.asExternalModel(): User {
         phoneNumber = phoneNumber,
         email = email,
         bio = "",
-        postDatas = PreviewProvider.posts
+        postDatas = PreviewProvider.posts,
+        image = PreviewProvider.users.let { it[Random.nextInt(0, it.size)].image }
     )
 }
