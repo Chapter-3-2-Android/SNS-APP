@@ -1,6 +1,10 @@
 package com.agvber.sns_app
 
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.StyleSpan
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.agvber.sns_app.data.PreviewProvider
@@ -86,10 +90,22 @@ class DetailActivity : AppCompatActivity() {
         val postData = PreviewProvider.posts[index]
         val userData = PreviewProvider.users[index]
         binding.ivMainImage.setImageResource(postData.image)
-        binding.tvPostContent.text = userData.name + " " + postData.content
 
+        //tvPostContent
+        val contentText = userData.name + " " + postData.content
+        val contentSpannableString = SpannableString(contentText)
+        val contentStartIndex = 0
+        val contentEndIndex = userData.name.length
+        contentSpannableString.setSpan(
+            StyleSpan(Typeface.BOLD),
+            contentStartIndex,
+            contentEndIndex,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        binding.tvPostContent.text = contentSpannableString
+
+        //tvNumLikes
         val likes = " " + getString(R.string.numLikes)
-
         binding.tvNumLikes.text = postData.like.toString() + likes
 
         val currentTime = LocalDateTime.now()
@@ -108,5 +124,18 @@ class DetailActivity : AppCompatActivity() {
             timeText = "${minDiff} minutes "
         }
         binding.tvPostedTime.text = "$timeText ago"
+
+        //tvSponsor text style 설정
+        val sponsorText = binding.tvSponsor.text
+        val sponsorSpannableString = SpannableString(sponsorText)
+        val sponsorStartIndex = 0
+        val sponsorEndIndex = sponsorText.split("\n").first().length
+        sponsorSpannableString.setSpan(
+            StyleSpan(Typeface.BOLD),
+            sponsorStartIndex,
+            sponsorEndIndex,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        binding.tvSponsor.text = sponsorSpannableString
     }
 }
