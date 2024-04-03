@@ -29,10 +29,27 @@ class MyActivity : AppCompatActivity() {
         binding = ActivityMyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 기존의 User 값을 받아와서 출력
         displayUserInfo()
+        clickDone()
+        clickProfileChange()
+        clickCancel()
+        clickSwitchtoLogin()
 
-        // Done 버튼 -> 유저 정보 수정
+    }
+
+    private fun displayUserInfo() {
+        with(binding) {
+            user.run {
+                etName.setText(name)
+                etId.setText(id)
+                etBio.setText(bio ?: "")
+                etEmail.setText(email ?: "")
+                etPhone.setText(phoneNumber ?: "")
+            }
+        }
+    }
+
+    private fun clickDone() {
         binding.btnDone.setOnClickListener {
             val newName = binding.etName.text.toString()
             val newBio = binding.etBio.text.toString()
@@ -41,32 +58,21 @@ class MyActivity : AppCompatActivity() {
 
             editUserInfo(newName, newBio, newEmail, newPhoneNumber)
             Toast.makeText(this, "정보가 수정 되었습니다.", Toast.LENGTH_SHORT).show()
-        }
-
-        // profile change 버튼 -> 사진 수정
-        binding.btnProfilechange.setOnClickListener {
-            changeProfilePhoto(binding.imgProfile)
-        }
-
-        // Cancel 버튼 -> 다시 메인 페이지로 돌아감
-        binding.btnCancel.setOnClickListener {
-            finish()
-            Toast.makeText(this, "정보 수정이 취소되었습니다.", Toast.LENGTH_SHORT).show()
+            val doneIntent = Intent(this, MainActivity::class.java)
+            startActivity(doneIntent)
         }
     }
 
-    // 사용자 정보가 null이 아닌 경우 Edittext에 값 설정
-    private fun displayUserInfo() {
-
-        with(binding){// with(binding) 수정 고려해보기 : 가독성 측면
+    private fun clickProfileChange() {
+        binding.btnProfilechange.setOnClickListener {
+            changeProfilePhoto(binding.imgProfile)
         }
+    }
 
-        user.run {
-            binding.etName.setText(name)
-            binding.etId.setText(id)
-            binding.etBio.setText(bio ?: " ")
-            binding.etEmail.setText(email ?: " ")
-            binding.etPhone.setText(phoneNumber ?: " ")
+    private fun clickCancel() {
+        binding.btnCancel.setOnClickListener {
+            finish()
+            Toast.makeText(this, "정보 수정이 취소되었습니다.", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -83,20 +89,27 @@ class MyActivity : AppCompatActivity() {
             user.phoneNumber = newPhoneNumber
             MemoryStorage.setUser(user)
         }
-            //MemoryStorage.getUser()
-            //Log.d("debug", MemoryStorage.getUser().toString())
+//            MemoryStorage.getUser()
+//            Log.d("debug", MemoryStorage.getUser().toString())
     }
 
-    // 사진 수정 로직
+    private fun clickSwitchtoLogin() {
+        binding.btnSwitchtologin.setOnClickListener {
+            val switchIntent = Intent(this, LogInActivity::class.java)
+            startActivity(switchIntent)
+        }
+    }
+
     fun changeProfilePhoto(view: View) {
     val changePictureIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+        // 묵시적 인텐트 호출 최신 방법?
         startActivityForResult(changePictureIntent, REQUEST_IMAGE_PICK)
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == REQUEST_IMAGE_PICK && resultCode == Activity.RESULT_OK && data != null){
-            val selectedImageUri = data.data
-            binding.imgProfile.setImageURI(selectedImageUri)
+            val selectedImageURI = data.data
+            binding.imgProfile.setImageURI(selectedImageURI)
         }
     }
 }
