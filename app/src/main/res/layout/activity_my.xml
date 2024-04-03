@@ -69,6 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view_gray"
         app:srcCompat="@drawable/img_profile2" />
 
+
     <TextView
         android:id="@+id/btn_profilechange"
         android:layout_width="wrap_content"
@@ -80,6 +81,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_profile"
         android:onClick="changeProfilePhoto"/>
+
 
     <View
         android:id="@+id/view"
