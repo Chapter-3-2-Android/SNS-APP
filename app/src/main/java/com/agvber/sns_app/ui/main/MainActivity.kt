@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivityMainBinding
+import com.agvber.sns_app.model.Image
 import com.agvber.sns_app.model.Post
 import com.agvber.sns_app.model.User
 import com.agvber.sns_app.ui.MyActivity
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() {
         initUserArea()
+        initUserProfileImage()
         initButtons()
         initGridView()
     }
@@ -70,12 +72,20 @@ class MainActivity : AppCompatActivity() {
     private fun initUserArea() {
         binding.run {
             tvUsernameTitle.text = user.name
-
-            civProfileImage.setImageResource(user.image)
             tvPosts.text = posts.size.toString()
-
             tvUsernameSub.text = user.name
             tvBio.text = user.bio
+        }
+    }
+
+    private fun initUserProfileImage() {
+        val image = user.image
+
+        binding.run {
+            when(image) {
+                is Image.ImageDrawable -> civProfileImage.setImageResource(image.drawable)
+                is Image.ImageUri -> { } // civProfileImage.setImageURI(image.uri)
+            }
         }
     }
 
