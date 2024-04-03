@@ -2,10 +2,8 @@ package com.agvber.sns_app
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
@@ -108,5 +106,3 @@ class MyActivity : AppCompatActivity() {
         }
     }
 }
-
-

@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <resources>
+        <string name="app_name">SNS 앱</string>
+        <string name="login">로그인</string>
+        <string name="id_hint">아이디</string>
+        <string name="password_hint">비밀번호</string>
+        <string name="login_button">로그인</string>
+        <string name="signup">회원가입</string>
+        <string name="forgot_password">비밀번호를 잊으셨나요?</string>
+        <string name="or">또는</string>
+        <string name="no_account">계정이 없으신가요?</string>
+    </resources>
+</resources>
