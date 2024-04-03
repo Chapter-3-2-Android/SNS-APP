@@ -20,6 +20,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="16dp"
+        android:text="Cancel"
+        android:textColor="#262626"
+        app:layout_constraintBottom_toBottomOf="@+id/view_gray"
+        app:layout_constraintStart_toStartOf="@+id/view_gray" />
+  
+    <TextView
         android:id="@+id/tv_editprofile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,17 +41,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/view_gray"
         app:layout_constraintEnd_toEndOf="@+id/view_gray"
-        app:layout_constraintStart_toStartOf="@+id/view_gray" />
-
-    <TextView
-        android:id="@+id/btn_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="16dp"
-        android:text="Cancel"
-        android:textColor="#262626"
-        app:layout_constraintBottom_toBottomOf="@+id/view_gray"
         app:layout_constraintStart_toStartOf="@+id/view_gray" />
 
     <TextView
