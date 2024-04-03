@@ -50,7 +50,10 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         }
     }
 
-    private fun clickLike(itemView: View, position: Int) { //좋아요 누를 시 이벤트, tv_NumLikes 뒤에 string.xml에 정의해서 붙이기
+    private fun clickLike(
+        itemView: View,
+        position: Int
+    ) { //좋아요 누를 시 이벤트, tv_NumLikes 뒤에 string.xml에 정의해서 붙이기
         val ivPostHeart = itemView.findViewById<ImageView>(R.id.iv_postHeart)
         val tvNumLikes = itemView.findViewById<TextView>(R.id.tv_numLikes)
         val firstNumLikes = PreviewProvider.posts[position].like
@@ -71,7 +74,7 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
 
     private fun postContentMore(itemView: View) { // 게시된 글 더보기
         val tvPost = itemView.findViewById<TextView>(R.id.tv_postContent)
-        val tvMorePost =  itemView.findViewById<TextView>(R.id.tv_postContentMore)
+        val tvMorePost = itemView.findViewById<TextView>(R.id.tv_postContentMore)
 
         tvPost.post {
             val lineCount = tvPost.layout.lineCount
@@ -95,25 +98,22 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
 
     }
 
-    private fun setPostDataToUI(itemView:View, position: Int) {
+    private fun setPostDataToUI(itemView: View, position: Int) {
         val postData = PreviewProvider.posts[position]
         val userData = PreviewProvider.users[0]
         itemView.findViewById<ImageView>(R.id.iv_mainImage).setImageResource(postData.image)
 
         val contentText = userData.name + " " + postData.content
         val contentSpannableString = SpannableString(contentText)
-        val contentStartIndex = 0
-        val contentEndIndex = userData.name.length
         contentSpannableString.setSpan(
             StyleSpan(Typeface.BOLD),
-            contentStartIndex,
-            contentEndIndex,
+            0,
+            userData.name.length,
             Spannable.SPAN_INCLUSIVE_INCLUSIVE
         )
-        itemView.findViewById<TextView>(R.id.tv_postContent).text  = contentSpannableString
+        itemView.findViewById<TextView>(R.id.tv_postContent).text = contentSpannableString
 
         val likes = " " + itemView.context.getString(R.string.numLikes)
-
         itemView.findViewById<TextView>(R.id.tv_numLikes).text = postData.like.toString() + likes
 
         val currentTime = LocalDateTime.now()
@@ -122,27 +122,25 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         val hourDiff = duration.toHours() % 24
         val minDiff = duration.toMinutes() % 60
 
-        var timeText = ""
-        if (daysDiff > 0) {
-            timeText += "${daysDiff} days "
+        val timeText = buildString {
+            when {
+                (daysDiff > 0) -> {
+                    if (daysDiff >= 30) append("${daysDiff / 30} months")
+                    else append("$daysDiff days ")
+                }
+                (hourDiff > 0) -> append("$hourDiff hours ")
+                (minDiff > 0) -> append("$minDiff minutes ")
+            }
         }
-        if (hourDiff > 0) {
-            timeText += "${hourDiff} hours "
-        }
-        if (minDiff > 0) {
-            timeText += "${minDiff} minutes "
-        }
-        if(timeText.isEmpty()) itemView.findViewById<TextView>(R.id.tv_postedTime).text = "now"
+        if (timeText.isEmpty()) itemView.findViewById<TextView>(R.id.tv_postedTime).text = "now"
         else itemView.findViewById<TextView>(R.id.tv_postedTime).text = "$timeText ago"
 
         val sponsorText = itemView.findViewById<TextView>(R.id.tv_sponsor).text
         val sponsorSpannableString = SpannableString(sponsorText)
-        val sponsorStartIndex = 0
-        val sponsorEndIndex = sponsorText.split("\n").first().length
         sponsorSpannableString.setSpan(
             StyleSpan(Typeface.BOLD),
-            sponsorStartIndex,
-            sponsorEndIndex,
+            0,
+            sponsorText.split("\n").first().length,
             Spannable.SPAN_INCLUSIVE_INCLUSIVE
         )
         itemView.findViewById<TextView>(R.id.tv_sponsor).text = sponsorSpannableString
