@@ -34,16 +34,3 @@ class PostAdapter(val context: Context, val posts: List<Post>) : BaseAdapter() {
         return view
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
