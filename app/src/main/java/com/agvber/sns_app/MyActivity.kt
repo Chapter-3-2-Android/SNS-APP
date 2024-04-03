@@ -20,7 +20,8 @@ class MyActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val REQUEST_IMAGE_PICK = 100 // 이미지선택 요청을 구분하기 위한 요청 코드, 임의의 상수
+        // 이미지 선택 요청을 구분하기 위한 요청 코드, 임의의 상수
+        private const val REQUEST_IMAGE_PICK = 100
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,8 +58,7 @@ class MyActivity : AppCompatActivity() {
     // 사용자 정보가 null이 아닌 경우 Edittext에 값 설정
     private fun displayUserInfo() {
 
-        with(binding){
-
+        with(binding){// with(binding) 수정 고려해보기 : 가독성 측면
         }
 
         user.run {
@@ -68,7 +68,6 @@ class MyActivity : AppCompatActivity() {
             binding.etEmail.setText(email ?: " ")
             binding.etPhone.setText(phoneNumber ?: " ")
         }
-// with(binding) 수정 고려해보기 : 가독성 측면
     }
 
     private fun editUserInfo(
@@ -84,12 +83,11 @@ class MyActivity : AppCompatActivity() {
             user.phoneNumber = newPhoneNumber
             MemoryStorage.setUser(user)
         }
-//        MemoryStorage.getUser()
-//        Log.d("debug", MemoryStorage.getUser().toString())
+            //MemoryStorage.getUser()
+            //Log.d("debug", MemoryStorage.getUser().toString())
     }
 
     // 사진 수정 로직
-
     fun changeProfilePhoto(view: View) {
     val changePictureIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
         startActivityForResult(changePictureIntent, REQUEST_IMAGE_PICK)
@@ -102,19 +100,5 @@ class MyActivity : AppCompatActivity() {
         }
     }
 }
-
-
-
-//    private fun changeProfilePhoto(view: View) {
-//        val profileImages = arrayOf(
-//            R.drawable.img_profile1,
-//            R.drawable.img_profile2,
-//            R.drawable.img_profile3,
-//            R.drawable.img_profile4,
-//            R.drawable.img_profile5
-//        ) // 서클 이미지에, 가로세로 길이 설정할 것
-//        val randomIndex = (0 until profileImages.size).random()
-//        binding.imgProfile.setImageResource(profileImages[randomIndex])
-//    }
 
 

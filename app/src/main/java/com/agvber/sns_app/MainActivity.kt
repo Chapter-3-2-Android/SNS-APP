@@ -93,7 +93,5 @@ class MainActivity : AppCompatActivity() {
     private fun setAdapter() {
         val postAdapter = PostAdapter(this, posts)
         binding.gvPosts.adapter = postAdapter
-
     }
 }
-
