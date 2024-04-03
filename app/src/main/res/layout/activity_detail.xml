@@ -7,9 +7,32 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
- <ListView
-     android:id="@+id/lv_detail"
-     android:layout_width="match_parent"
-     android:layout_height="match_parent"/>
+    <ImageView
+        android:id="@+id/iv_topLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_topHeart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:src="@drawable/ic_heart_none"
+        app:layout_constraintBottom_toBottomOf="@id/iv_topLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_topLogo" />
+
+        <ListView
+            android:id="@+id/lv_detail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_topLogo"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,10 @@
 package com.agvber.sns_app.adapter
 
 import android.content.Context
+import android.graphics.Typeface
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.StyleSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -91,11 +95,22 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
 
     }
 
-    private fun setPostDataToUI(itemView:View, position: Int) { // LocalDateTime 사용 필, string.xml에 NumLikes 뒤 문장 필
+    private fun setPostDataToUI(itemView:View, position: Int) {
         val postData = PreviewProvider.posts[position]
-        val userData = PreviewProvider.users[position]
+        val userData = PreviewProvider.users[0]
         itemView.findViewById<ImageView>(R.id.iv_mainImage).setImageResource(postData.image)
-        itemView.findViewById<TextView>(R.id.tv_postContent).text = userData.name + " " + postData.content
+
+        val contentText = userData.name + " " + postData.content
+        val contentSpannableString = SpannableString(contentText)
+        val contentStartIndex = 0
+        val contentEndIndex = userData.name.length
+        contentSpannableString.setSpan(
+            StyleSpan(Typeface.BOLD),
+            contentStartIndex,
+            contentEndIndex,
+            Spannable.SPAN_INCLUSIVE_INCLUSIVE
+        )
+        itemView.findViewById<TextView>(R.id.tv_postContent).text  = contentSpannableString
 
         val likes = " " + itemView.context.getString(R.string.numLikes)
 
@@ -117,6 +132,19 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         if (minDiff > 0) {
             timeText += "${minDiff} minutes "
         }
-        itemView.findViewById<TextView>(R.id.tv_postedTime).text = "$timeText ago"
+        if(timeText.isEmpty()) itemView.findViewById<TextView>(R.id.tv_postedTime).text = "now"
+        else itemView.findViewById<TextView>(R.id.tv_postedTime).text = "$timeText ago"
+
+        val sponsorText = itemView.findViewById<TextView>(R.id.tv_sponsor).text
+        val sponsorSpannableString = SpannableString(sponsorText)
+        val sponsorStartIndex = 0
+        val sponsorEndIndex = sponsorText.split("\n").first().length
+        sponsorSpannableString.setSpan(
+            StyleSpan(Typeface.BOLD),
+            sponsorStartIndex,
+            sponsorEndIndex,
+            Spannable.SPAN_INCLUSIVE_INCLUSIVE
+        )
+        itemView.findViewById<TextView>(R.id.tv_sponsor).text = sponsorSpannableString
     }
 }

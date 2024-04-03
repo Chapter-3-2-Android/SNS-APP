@@ -21,5 +21,8 @@ class DetailActivity : AppCompatActivity() {
        val listView = binding.lvDetail
         listView.adapter = DetailListViewAdapter(this, PreviewProvider.posts)
 
+        listView.requestFocusFromTouch()
+        listView.deferNotifyDataSetChanged()
+        listView.setSelection(5)
     }
 }
