@@ -15,7 +15,6 @@ class MyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyBinding
 
     val user: User by lazy {
-        MemoryStorage.setUser(PreviewProvider.users[0])
         MemoryStorage.getUser()
     }
 
@@ -101,12 +100,14 @@ class MyActivity : AppCompatActivity() {
     }
 
     fun changeProfilePhoto(view: View) {
-    val changePictureIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+        val changePictureIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+
         // 묵시적 인텐트 호출 최신 방법?
         startActivityForResult(changePictureIntent, REQUEST_IMAGE_PICK)
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         if(requestCode == REQUEST_IMAGE_PICK && resultCode == Activity.RESULT_OK && data != null){
             val selectedImageURI = data.data
             binding.imgProfile.setImageURI(selectedImageURI)

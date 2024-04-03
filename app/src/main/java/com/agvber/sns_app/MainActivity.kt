@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setUserStorage()
+        setMemotyStorage()
         initView()
     }
 
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         initGridView()
     }
 
-    private fun setUserStorage() {
+    private fun setMemotyStorage() {
         // 로그인 페이지에서 userID 값을 넘겨받은 경우
         if (intent.hasExtra("userID")) {
             val userid = intent.getStringExtra("userID")
@@ -80,14 +80,9 @@ class MainActivity : AppCompatActivity() {
     private fun initButtons() {
         binding.run {
             arrayOf(civProfileImage, btnEditProfile).forEach {
-                it.setOnClickListener { callMyPage() }
+                it.setOnClickListener { runMyPage() }
             }
         }
-    }
-
-    private fun callMyPage() {
-        val intent = Intent(this, MyActivity::class.java)
-        startActivity(intent)
     }
 
     private fun initGridView() {
@@ -97,6 +92,11 @@ class MainActivity : AppCompatActivity() {
         binding.gvPosts.onItemClickListener = OnItemClickListener { parent, view, position, id ->
             runDetailPage(position)
         }
+    }
+
+    private fun runMyPage() {
+        val intent = Intent(this, MyActivity::class.java)
+        startActivity(intent)
     }
 
     private fun runDetailPage(index: Int) {
