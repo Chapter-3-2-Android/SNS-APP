@@ -2,10 +2,14 @@ package com.agvber.sns_app
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivityMyBinding
@@ -17,11 +21,6 @@ class MyActivity : AppCompatActivity() {
     val user: User by lazy {
         MemoryStorage.setUser(PreviewProvider.users[0])
         MemoryStorage.getUser()
-    }
-
-    companion object {
-        // 이미지 선택 요청을 구분하기 위한 요청 코드, 임의의 상수
-        private const val REQUEST_IMAGE_PICK = 100
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,7 +79,7 @@ class MyActivity : AppCompatActivity() {
         newName: String,
         newBio: String,
         newEmail: String,
-        newPhoneNumber: String
+        newPhoneNumber: String,
     ) {
         user?.let {
             user.name = newName
@@ -101,15 +100,11 @@ class MyActivity : AppCompatActivity() {
     }
 
     fun changeProfilePhoto(view: View) {
-    val changePictureIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-        // 묵시적 인텐트 호출 최신 방법?
-        startActivityForResult(changePictureIntent, REQUEST_IMAGE_PICK)
+        pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == REQUEST_IMAGE_PICK && resultCode == Activity.RESULT_OK && data != null){
-            val selectedImageURI = data.data
-            binding.imgProfile.setImageURI(selectedImageURI)
+    private val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+        uri?.let {
+            binding.imgProfile.setImageURI(it)
         }
     }
 }
