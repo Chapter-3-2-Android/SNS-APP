@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32dp"
+    android:background="@color/white"
+    tools:context=".ui.SignupActivity">
+
+    <ImageView
+        android:id="@+id/brand_log_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="6dp"
+        android:src="@drawable/ic_brand_logo_large"
+        app:layout_constraintBottom_toTopOf="@+id/title_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:text="친구들의 사진과 동영상을 보려면\n가입하세요."
+        android:textAlignment="center"
+        android:textColor="#8E8E8E"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/divider_li"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/divider_li"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/edit_texts_li"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="0dp"
+            android:layout_height="1.4dp"
+            android:layout_weight="1"
+            app:dividerColor="#DBDBDB" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="24dp"
+            android:text="또는"
+            android:textColor="#8E8E8E"
+            android:textStyle="bold" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="0dp"
+            android:layout_height="1.4dp"
+            android:layout_weight="1"
+            app:dividerColor="#DBDBDB" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/edit_texts_li"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/phone_numer_or_email_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/et_signup"
+            android:hint="휴대폰 번호 또는 이메일 주소"
+            android:maxLines="1"
+            android:minHeight="42dp"
+            android:paddingHorizontal="8dp"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/name_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/et_signup"
+            android:hint="성명"
+            android:textSize="12sp"
+            android:maxLines="1"
+            android:minHeight="42dp"
+            android:paddingHorizontal="8dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/id_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/et_signup"
+            android:hint="아이디"
+            android:maxLines="1"
+            android:minHeight="42dp"
+            android:paddingHorizontal="8dp"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/password_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/et_signup"
+            android:hint="비밀번호"
+            android:maxLines="1"
+            android:minHeight="42dp"
+            android:paddingHorizontal="8dp"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:inputType="textPassword"/>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/confirm_btn"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/btn_signup_confirm"
+        android:enabled="false"
+        android:text="가입"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/edit_texts_li" />
+
+    <TextView
+        android:id="@+id/agree_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="가입하면 Instagram의 약관, 데이터 정책 및 쿠폰\n정책에 동의하게 됩니다."
+        android:textAlignment="center"
+        android:textColor="#8E8E8E"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
