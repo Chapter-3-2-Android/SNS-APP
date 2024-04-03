@@ -41,26 +41,31 @@ class SignupActivity : AppCompatActivity() {
             )
                 .forEach { editables ->
                     editables.addTextChangedListener { editable ->
-                        when (editables.id) {
-                            phoneNumerOrEmailEt.id -> {
-                                val emailOrPhoneNumber = editable.toString()
-                                signUpData = if (emailRegex.containsMatchIn(emailOrPhoneNumber)) {
-                                    signUpData.copy(email = emailOrPhoneNumber)
-                                } else if (phoneNumberRegex.containsMatchIn(emailOrPhoneNumber)) {
-                                    signUpData.copy(phoneNumber = emailOrPhoneNumber)
-                                } else {
-                                    signUpData.copy(email = null, phoneNumber = null)
-                                }
-                            }
-
-                            nameEt.id -> signUpData = signUpData.copy(name = editable.toString())
-                            idEt.id -> signUpData = signUpData.copy(id = editable.toString())
-                            passwordEt.id -> signUpData =
-                                signUpData.copy(password = editable.toString())
-                        }
+                        updateSignupData(editables.id, editable.toString())
                         binding.confirmBtn.isEnabled = signUpData.checkStatus()
                     }
                 }
+        }
+    }
+
+    private fun updateSignupData(viewId: Int, editText: String) {
+        binding.apply {
+            when (viewId) {
+                phoneNumerOrEmailEt.id -> setEmailOrPhoneNumber(editText)
+                nameEt.id -> signUpData = signUpData.copy(name = editText)
+                idEt.id -> signUpData = signUpData.copy(id = editText)
+                passwordEt.id -> signUpData = signUpData.copy(password = editText)
+            }
+        }
+    }
+
+    private fun setEmailOrPhoneNumber(emailOrPhoneNumber: String) {
+        signUpData = if (emailRegex.containsMatchIn(emailOrPhoneNumber)) {
+            signUpData.copy(email = emailOrPhoneNumber)
+        } else if (phoneNumberRegex.containsMatchIn(emailOrPhoneNumber)) {
+            signUpData.copy(phoneNumber = emailOrPhoneNumber)
+        } else {
+            signUpData.copy(email = null, phoneNumber = null)
         }
     }
 
