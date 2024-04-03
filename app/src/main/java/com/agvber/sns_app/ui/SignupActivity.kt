@@ -4,14 +4,10 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
-import androidx.lifecycle.lifecycleScope
 import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivitySignupBinding
 import com.agvber.sns_app.model.User
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 class SignupActivity : AppCompatActivity() {
     companion object {
@@ -20,26 +16,19 @@ class SignupActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivitySignupBinding
-    private val signUpData = MutableStateFlow(SignupData())
+    private var signUpData = SignupData()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        lifecycleScope.launch {
-            signUpData.collectLatest {
-                runOnUiThread {
-                    binding.confirmBtn.isEnabled = it.checkStatus()
-                }
-            }
-        }
         binding.confirmBtn.setOnClickListener {
-            if (!signUpData.value.checkStatus()) {
+            if (!signUpData.checkStatus()) {
                 Toast.makeText(this@SignupActivity, "에러가 발생하였습니다", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            MemoryStorage.setUser(signUpData.value.asExternalModel())
+            MemoryStorage.setUser(signUpData.asExternalModel())
             finish()
         }
 
@@ -48,33 +37,34 @@ class SignupActivity : AppCompatActivity() {
 
     private fun watchEditText() {
         binding.apply {
-            phoneNumerOrEmailEt.addTextChangedListener { editable ->
-                val emailOrPhoneNumber = editable.toString()
-                if (emailRegex.containsMatchIn(emailOrPhoneNumber)) {
-                    signUpData.asyncUpdate { it.copy(email = it.toString()) }
-                    return@addTextChangedListener
-                }
-                if (phoneNumberRegex.containsMatchIn(emailOrPhoneNumber)) {
-                    signUpData.asyncUpdate { it.copy(phoneNumber = emailOrPhoneNumber) }
-                    return@addTextChangedListener
-                }
-                signUpData.asyncUpdate { it.copy(email = null, phoneNumber = null) }
-            }
-            nameEt.addTextChangedListener {
-                signUpData.asyncUpdate { it.copy(name = it.toString()) }
-            }
-            idEt.addTextChangedListener {
-                signUpData.asyncUpdate { it.copy(id = it.toString()) }
-            }
-            passwordEt.addTextChangedListener {
-                signUpData.asyncUpdate { it.copy(password = it.toString()) }
-            }
-        }
-    }
+            listOf(
+                phoneNumerOrEmailEt,
+                nameEt,
+                idEt,
+                passwordEt
+            )
+                .forEach { editables ->
+                    editables.addTextChangedListener { editable ->
+                        when (editables.id) {
+                            phoneNumerOrEmailEt.id -> {
+                                val emailOrPhoneNumber = editable.toString()
+                                signUpData = if (emailRegex.containsMatchIn(emailOrPhoneNumber)) {
+                                    signUpData.copy(email = emailOrPhoneNumber)
+                                } else if (phoneNumberRegex.containsMatchIn(emailOrPhoneNumber)) {
+                                    signUpData.copy(phoneNumber = emailOrPhoneNumber)
+                                } else {
+                                    signUpData.copy(email = null, phoneNumber = null)
+                                }
+                            }
 
-    private fun <T> MutableStateFlow<T>.asyncUpdate(function: (T) -> T) {
-        lifecycleScope.launch {
-            this@asyncUpdate.emit(function(value))
+                            nameEt.id -> signUpData = signUpData.copy(name = editable.toString())
+                            idEt.id -> signUpData = signUpData.copy(id = editable.toString())
+                            passwordEt.id -> signUpData =
+                                signUpData.copy(password = editable.toString())
+                        }
+                        binding.confirmBtn.isEnabled = signUpData.checkStatus()
+                    }
+                }
         }
     }
 }
