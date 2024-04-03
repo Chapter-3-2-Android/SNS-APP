@@ -1,5 +1,6 @@
 package com.agvber.sns_app
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.agvber.sns_app.adapter.PostAdapter
@@ -86,8 +87,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun callMyPage() {
         // TODO: 추후 병합 시 활성화
-//        val intent = Intent(this, MyActivity::class.java)
-//        startActivity(intent)
+        val intent = Intent(this, MyActivity::class.java)
+        startActivity(intent)
     }
 
     private fun setAdapter() {

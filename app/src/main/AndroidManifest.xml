@@ -15,12 +15,12 @@
 
         <activity
             android:name=".MyActivity"
-            android:exported="true" />
+            android:exported="true"/>
         <activity android:name=".DetailActivity"
             android:exported="true" />
         <activity
             android:name=".LogInActivity"
-            android:exported="true" />
+            android:exported="true"/>
         <activity
             android:name=".ui.SignupActivity"
             android:exported="true"
