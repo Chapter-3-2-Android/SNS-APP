@@ -66,16 +66,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initUserArea() {
-        with(binding) {
-            tvUsernameTitle.text = user.name
-
-            civProfileImage.setImageResource(user.image)
-            tvPosts.text = posts.size.toString()
-
-            tvUsernameSub.text = user.name
-            tvBio.text = user.bio
-        }
-
         binding.run {
             tvUsernameTitle.text = user.name
 
