@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".MyActivity">
+    tools:context=".ui.MyActivity">
 
     <!-- 최상단 -->
 
@@ -129,6 +129,7 @@
             android:layout_weight="3"
             android:layout_marginRight="10dp"
             android:backgroundTint="#4A3C3C43"
+            android:nextFocusDown="@+id/et_id"
             android:hint="Text your name"
              />
 
@@ -199,6 +200,7 @@
             android:backgroundTint="#4A3C3C43"
             android:hint="Text your bio"
             android:layout_marginRight="10dp"
+            android:nextFocusDown="@+id/et_email"
             android:layout_weight="3"/>
 
     </LinearLayout>
@@ -233,6 +235,7 @@
             android:backgroundTint="#4A3C3C43"
             android:hint="Text your email"
             android:layout_marginRight="10dp"
+            android:nextFocusDown="@+id/et_phone"
             android:layout_weight="3"/>
 
     </LinearLayout>
