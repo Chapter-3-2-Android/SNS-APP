@@ -1,17 +1,20 @@
 package com.agvber.sns_app.model
 
-import android.os.Parcelable
+import android.net.Uri
 import androidx.annotation.DrawableRes
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class User(
     val id: String,
     val password: String,
-    @DrawableRes val image: Int,
+    val image: Image,
     var name: String,
     var phoneNumber: String?,
     var email: String?,
     var bio: String?,
-    var postDatas: List<Post>
-) : Parcelable
+    var postDatas: List<Post> = listOf()
+)
+
+sealed interface Image {
+    data class ImageDrawable(@DrawableRes val drawable: Int): Image
+    data class ImageUri(val uri: Uri): Image
+}

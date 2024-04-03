@@ -1,4 +1,4 @@
-package com.agvber.sns_app
+package com.agvber.sns_app.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,10 @@ import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.databinding.ActivityMyBinding
 import com.agvber.sns_app.model.User
+import com.agvber.sns_app.ui.main.MainActivity
 
 class MyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyBinding

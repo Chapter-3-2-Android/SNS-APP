@@ -14,34 +14,32 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".MyActivity"
-            android:exported="true"/>
-        <activity android:name=".DetailActivity"
-            android:exported="true" />
-        <activity
-            android:name=".LogInActivity"
-            android:exported="true"/>
-        <activity
-            android:name=".ui.SignupActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity
-            android:name=".MainActivity"
+            android:name=".ui.LogInActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.SNSAPP">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".MyActivity"
-            android:exported="true" />
+            android:name=".ui.SignupActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"/>
+
         <activity
-            android:name=".DetailActivity"
+            android:name=".ui.MyActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.detail.DetailActivity"/>
+
     </application>
 
 </manifest>
