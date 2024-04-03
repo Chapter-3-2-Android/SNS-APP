@@ -15,3 +15,7 @@ data class Post(
     val time: LocalDateTime,
     var like: Int = Random.nextInt(1, 100)
 ): Parcelable
+
+
+
+

@@ -61,13 +61,13 @@
 
     <ImageView
         android:id="@+id/img_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_gray"
-        app:srcCompat="@drawable/img_profile1" />
+        app:srcCompat="@drawable/img_profile2" />
 
     <TextView
         android:id="@+id/btn_profilechange"
@@ -78,7 +78,8 @@
         android:textColor="#3897F0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+        app:layout_constraintTop_toBottomOf="@+id/img_profile"
+        android:onClick="changeProfilePhoto"/>
 
     <View
         android:id="@+id/view"
@@ -155,9 +156,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#4A3C3C43"
-            android:hint="Text your id"
+            android:hint="id는 수정불가"
             android:layout_marginRight="10dp"
-            android:layout_weight="3" />
+            android:layout_weight="3"
+            android:enabled="false"/>
 
     </LinearLayout>
 
