@@ -5,7 +5,7 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LogInActivity">
+    tools:context=".ui.LogInActivity">
 
     <View
         android:id="@+id/vi_1"
@@ -113,7 +113,7 @@
     <TextView
         android:id="@+id/tv_signup"
         android:layout_width="54dp"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="42dp"
         android:text="Sign up."

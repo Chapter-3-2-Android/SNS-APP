@@ -1,4 +1,4 @@
-package com.agvber.sns_app.adapter
+package com.agvber.sns_app.ui.main
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -34,16 +34,3 @@ class PostAdapter(val context: Context, val posts: List<Post>) : BaseAdapter() {
         return view
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
