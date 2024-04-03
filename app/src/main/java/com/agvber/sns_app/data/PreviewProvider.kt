@@ -13,14 +13,14 @@ object PreviewProvider {
             id = 1,
             image = R.drawable.img_post1,
             content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt #hashtag",
-            time = LocalDateTime.now()
+            time = LocalDateTime.of(2022, 4, 3, 10, 30, 15)
         ),
         Post(
             userId = "test1",
             id = 2,
             image = R.drawable.img_post2,
             content = "Digital goodies designer @pixsellz \nEverything is designed.",
-            time = LocalDateTime.now()
+            time = LocalDateTime.of(2022, 5, 3, 14, 30, 15)
         ),
         Post(
             userId = "test1",
