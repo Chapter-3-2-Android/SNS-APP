@@ -1,6 +1,5 @@
 package com.agvber.sns_app
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +25,7 @@ class LogInActivity : AppCompatActivity() {
         }
     }
 }
+
 
 //
 //        val signupIntent = Intent(this, SignupActivity::class.java)
