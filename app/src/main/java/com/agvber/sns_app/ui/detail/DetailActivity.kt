@@ -1,7 +1,8 @@
-package com.agvber.sns_app
+package com.agvber.sns_app.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.agvber.sns_app.R
 import com.agvber.sns_app.adapter.DetailListViewAdapter
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivityDetailBinding
@@ -12,6 +13,7 @@ class DetailActivity : AppCompatActivity() {
     private val postDataIndex by lazy { intent.getIntExtra("postIndex", 0) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

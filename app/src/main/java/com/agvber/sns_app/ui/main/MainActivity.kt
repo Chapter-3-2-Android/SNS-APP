@@ -1,9 +1,11 @@
-package com.agvber.sns_app
+package com.agvber.sns_app.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.AdapterView.OnItemClickListener
 import androidx.appcompat.app.AppCompatActivity
+import com.agvber.sns_app.MemoryStorage
+import com.agvber.sns_app.R
 import com.agvber.sns_app.adapter.PostAdapter
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivityMainBinding

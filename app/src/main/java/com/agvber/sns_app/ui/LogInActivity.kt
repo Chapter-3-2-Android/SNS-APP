@@ -1,5 +1,6 @@
 package com.agvber.sns_app
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,10 @@ class LogInActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener {
+            val myIntent = Intent(this, SignupActivity::class.java)
+            myIntent.putExtra("userID", "test1")
+            startActivity(myIntent)
+
             val userId = binding.tvId.text.toString()
             val password = binding.etPassword.text.toString()
 
@@ -32,8 +37,6 @@ class LogInActivity : AppCompatActivity() {
 //        startActivity(signupIntent)
 //
 ////
-//        val myIntent = Intent(this, MyActivity::class.java)
-//        myIntent.putExtra("string", "string")
-//        startActivity(myIntent)
+
 //    }
 //}
