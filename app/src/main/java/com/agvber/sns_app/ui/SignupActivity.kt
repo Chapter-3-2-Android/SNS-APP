@@ -11,11 +11,6 @@ import com.agvber.sns_app.model.User
 import kotlin.random.Random
 
 class SignupActivity : AppCompatActivity() {
-    companion object {
-        private val emailRegex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}\$".toRegex()
-        private val phoneNumberRegex = "^\\+?\\d{1,3}[- ]?\\d{3,}(?:[- ]?\\d{3,})?\$".toRegex()
-    }
-
     private lateinit var binding: ActivitySignupBinding
     private var signUpData = SignupData()
 
@@ -67,6 +62,11 @@ class SignupActivity : AppCompatActivity() {
                     }
                 }
         }
+    }
+
+    companion object {
+        private val emailRegex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}\$".toRegex()
+        private val phoneNumberRegex = "^\\+?\\d{1,3}[- ]?\\d{3,}(?:[- ]?\\d{3,})?\$".toRegex()
     }
 }
 
