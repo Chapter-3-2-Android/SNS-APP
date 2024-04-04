@@ -9,7 +9,7 @@ import android.widget.ImageView
 import com.agvber.sns_app.R
 import com.agvber.sns_app.model.Post
 
-class PostAdapter(val context: Context, val posts: List<Post>) : BaseAdapter() {
+class PostAdapter(val posts: List<Post>) : BaseAdapter() {
 
     override fun getCount(): Int {
         return posts.count()
@@ -26,10 +26,11 @@ class PostAdapter(val context: Context, val posts: List<Post>) : BaseAdapter() {
     override fun getView(
         position: Int, convertView: View?, parent: ViewGroup?
     ): View {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_post_gridview, null)
+        val inflater = parent?.context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view = inflater.inflate(R.layout.item_post_gridview, parent, false)
 
-        val iv = view.findViewById<ImageView>(R.id.iv_post)
-        iv.setImageResource(posts[position].image)
+        val imageViewPost = view.findViewById<ImageView>(R.id.iv_post)
+        imageViewPost.setImageResource(posts[position].image)
 
         return view
     }

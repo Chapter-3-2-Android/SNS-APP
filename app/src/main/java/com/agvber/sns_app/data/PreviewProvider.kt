@@ -7,92 +7,46 @@ import com.agvber.sns_app.model.User
 import java.time.LocalDateTime
 
 object PreviewProvider {
-    val posts = listOf<Post>(
-        Post(
-            userId = "test1",
-            id = 1,
-            image = R.drawable.img_post1,
-            content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt #hashtag",
-            time = LocalDateTime.of(2022, 4, 3, 10, 30, 15)
-        ),
-        Post(
-            userId = "test1",
-            id = 2,
-            image = R.drawable.img_post2,
-            content = "Digital goodies designer @pixsellz \nEverything is designed.",
-            time = LocalDateTime.of(2022, 5, 3, 14, 30, 15)
-        ),
-        Post(
-            userId = "test1",
-            id = 3,
-            image = R.drawable.img_post3,
-            content = "Digital goodies designer @pixsellz \nEverything is designed.",
-            time = LocalDateTime.now()
-        ),
-        Post(
-            userId = "test1",
-            id = 4,
-            image = R.drawable.img_post4,
-            content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt #hashtag",
-            time = LocalDateTime.now()
-        ),
-        Post(
-            userId = "test1",
-            id = 5,
-            image = R.drawable.img_post5,
-            content = "Digital goodies designer @pixsellz \nEverything is designed.",
-            time = LocalDateTime.now()
-        ),
-        Post(
-            userId = "test1",
-            id = 6,
-            image = R.drawable.img_post6,
-            content = "Digital goodies designer @pixsellz \nEverything is designed.",
-            time = LocalDateTime.now()
-        ),
-        Post(
-            userId = "test1",
-            id = 7,
-            image = R.drawable.img_post7,
-            content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt #hashtag",
-            time = LocalDateTime.now()
-        ),
-        Post(
-            userId = "test1",
-            id = 8,
-            image = R.drawable.img_post8,
-            content = "Digital goodies designer @pixsellz \nEverything is designed.",
-            time = LocalDateTime.now()
-        ),
-        Post(
-            userId = "test1",
-            id = 9,
-            image = R.drawable.img_post9,
-            content = "Digital goodies designer @pixsellz \nEverything is designed.",
-            time = LocalDateTime.now()
-        ),
-        Post(
-            userId = "test1",
-            id = 10,
-            image = R.drawable.img_post10,
-            content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt #hashtag",
-            time = LocalDateTime.now()
-        ),
-        Post(
-            userId = "test1",
-            id = 11,
-            image = R.drawable.img_post11,
-            content = "Digital goodies designer @pixsellz \nEverything is designed.",
-            time = LocalDateTime.now()
-        ),
-        Post(
-            userId = "test2",
-            id = 1,
-            image = R.drawable.img_post12,
-            content = "Digital goodies designer @pixsellz \nEverything is designed.",
-            time = LocalDateTime.now()
-        )
+    val drawableImages = listOf(
+        R.drawable.img_post1,
+        R.drawable.img_post2,
+        R.drawable.img_post3,
+        R.drawable.img_post4,
+        R.drawable.img_post5,
+        R.drawable.img_post6,
+        R.drawable.img_post7,
+        R.drawable.img_post8,
+        R.drawable.img_post9,
+        R.drawable.img_post10,
+        R.drawable.img_post11,
+        R.drawable.img_post12,
+        R.drawable.img_post13,
+        R.drawable.img_post14,
+        R.drawable.img_post15,
+        R.drawable.img_post16,
+        R.drawable.img_post17,
+        R.drawable.img_post18,
+        R.drawable.img_post19,
+        R.drawable.img_post20,
     )
+
+    var posts: List<Post> = listOf()
+
+    init {
+        posts = (1..drawableImages.size).map {
+            val year = (2020..2024).random()
+            val month = (1..11).random()
+            val day = (1..28).random()
+
+            Post(
+                userId = "test1",
+                id = it,
+                image = drawableImages[it - 1],
+                content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt #hashtag",
+                time = LocalDateTime.of(year, month, day, 10, 30, 15)
+            )
+        }
+    }
 
     val users = mutableListOf(
         User(
