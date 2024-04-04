@@ -113,7 +113,9 @@ class MyActivity : AppCompatActivity() {
             bio = newBio
             email = newEmail
             phoneNumber = newPhoneNumber
-            image = Image.ImageUri(profileUri!!)
+            if(profileUri != null){
+                image = Image.ImageUri(profileUri!!)
+            }
 
             MemoryStorage.setUser(user)
         }
