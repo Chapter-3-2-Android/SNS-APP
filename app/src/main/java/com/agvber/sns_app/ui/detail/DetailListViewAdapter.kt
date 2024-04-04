@@ -100,9 +100,8 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
     }
 
     private fun setPostDataToUI(itemView: View, position: Int) {
-//        val postData = MemoryStorage.getUser().postDatas[position]
 //        val userData = MemoryStorage.getUser()
-        val postData = PreviewProvider.posts[position]
+        val postData = data[position]
         val userData = PreviewProvider.users[0]
         itemView.findViewById<ImageView>(R.id.iv_mainImage).setImageResource(postData.image)
 
