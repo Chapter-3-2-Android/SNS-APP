@@ -6,6 +6,17 @@
     <string name="text_clip" translatable="false">🙌</string>
     <string name="numLikes">Likes</string>
 
+    <!--  로그인 페이지 string  -->
+    <string name="tv_ps">Forgot password?</string>
+    <string name="et_id">ID</string>
+    <string name="btn_login">Log in</string>
+    <string name="tv_or">Or</string>
+    <string name="et_password">Password</string>
+    <string name="tv_signup">Sign up</string>
+    <string name="tv_have">Don\'t have an acount?</string>
+    <string name="toast_wrong_id" translatable="false">Password does not match</string>
+    <string name="toast_wrong_ps" translatable="false">Id does not match</string>
+
     <!--  feature/signup     -->
     <string name="tv_signup_welcome">Sign up to see photos and videos\nfrom your friends</string>
     <string name="tv_signup_or">OR</string>
@@ -45,15 +56,4 @@
     <string name="tv_detail_minutes">minutes</string>
     <string name="tv_detail_now">now</string>
 
-
-    <!--  로그인 페이지 string  -->
-    <string name="tv_ps">Forgot password?</string>
-    <string name="et_id">ID</string>
-    <string name="btn_login">Log in</string>
-    <string name="tv_or">Or</string>
-    <string name="et_password">Password</string>
-    <string name="tv_signup">Sign up</string>
-    <string name="tv_have">Don\'t have an acount?</string>
-    <string name="toast_wrong_id" translatable="false">Password does not match</string>
-    <string name="toast_wrong_ps" translatable="false">Id does not match</string>
 </resources>
