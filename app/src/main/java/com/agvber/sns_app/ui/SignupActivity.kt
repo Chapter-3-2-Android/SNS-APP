@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
-import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.R
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivitySignupBinding
@@ -22,7 +21,6 @@ class SignupActivity : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         binding.confirmBtn.setOnClickListener {
             eventSuccess()
             eventFail()
@@ -33,7 +31,7 @@ class SignupActivity : AppCompatActivity() {
 
     private fun eventSuccess() {
         if (signUpData.checkStatus()) {
-            MemoryStorage.setUser(signUpData.asExternalModel())
+            PreviewProvider.users.add(signUpData.asExternalModel(binding.nameEt.toString()))
             finish()
         }
     }
@@ -100,7 +98,12 @@ private data class SignupData(
             !name.isNullOrBlank() && !id.isNullOrBlank() && !password.isNullOrBlank()
 }
 
-private fun SignupData.asExternalModel(): User {
+private fun SignupData.asExternalModel(userId: String): User {
+    val postDatas = PreviewProvider.posts
+        .shuffled()
+        .slice(0..< Random.nextInt(4, PreviewProvider.posts.size))
+        .map { it.copy(userId = userId) }
+
     return User(
         id = id!!,
         password = password!!,
@@ -108,7 +111,7 @@ private fun SignupData.asExternalModel(): User {
         phoneNumber = phoneNumber,
         email = email,
         bio = "",
-        postDatas = PreviewProvider.posts,
+        postDatas = postDatas,
         image = PreviewProvider.users.let { it[Random.nextInt(0, it.size)].image }
     )
 }
