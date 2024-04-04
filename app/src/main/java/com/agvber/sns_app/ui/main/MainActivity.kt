@@ -3,7 +3,6 @@ package com.agvber.sns_app.ui.main
 import android.content.Intent
 import android.os.Bundle
 import android.widget.AdapterView.OnItemClickListener
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.data.PreviewProvider
@@ -48,38 +47,19 @@ class MainActivity : AppCompatActivity() {
         // 로그인 페이지에서 userID 값을 넘겨받은 경우
         if (intent.hasExtra("userID")) {
             val userid = intent.getStringExtra("userID")
-            val matchedUser = findMatchUserOrDefault(userid!!)
 
-            MemoryStorage.setUser(matchedUser!!)
+            val matchedUser = PreviewProvider.users.filter {
+                it.id == userid
+            }.firstOrNull()
+                ?: throw ClassCastException("PreviewProvider.users에 일치하는 ${userid}가 없습니다.")
+
+            MemoryStorage.setUser(matchedUser)
             user.updatePostData()
         } else { // 로그인 페이지에서 userID 값을 넘겨받지 못한 경우 default 설정
-            val dafauleUser = getDefaultUser()
+            val dafauleUser = PreviewProvider.users[0]
 
             MemoryStorage.setUser(dafauleUser)
             user.updatePostData()
-        }
-    }
-
-    private fun findMatchUserOrDefault(userid: String): User {
-        val matchedUser = PreviewProvider.users.filter {
-            it.id == userid
-        }.firstOrNull()
-
-        if (matchedUser == null) {
-            val message = "PreviewProvider.users에 일치하는 ${userid}가 없습니다."
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-
-            return getDefaultUser()
-        }
-
-        return matchedUser
-    }
-
-    private fun getDefaultUser(): User {
-        return if (PreviewProvider.users.size > 3) {
-            PreviewProvider.users.last()
-        } else {
-            PreviewProvider.users[0]
         }
     }
 
@@ -92,7 +72,7 @@ class MainActivity : AppCompatActivity() {
     private fun initUserArea() {
         binding.run {
             tvUsernameTitle.text = user.name
-            tvPostsValue.text = posts.size.toString()
+            tvPosts.text = posts.size.toString()
             tvUsernameSub.text = user.name
             tvBio.text = user.bio
         }
@@ -102,8 +82,7 @@ class MainActivity : AppCompatActivity() {
         val image = user.image
 
         binding.run {
-            when (image) {
-                // is의 역할 -> 스마트 캐스팅 : 타입 검사 + 형변환
+            when(image) {
                 is Image.ImageDrawable -> civProfileImage.setImageResource(image.drawable)
                 is Image.ImageUri -> { } // civProfileImage.setImageURI(image.uri)
             }

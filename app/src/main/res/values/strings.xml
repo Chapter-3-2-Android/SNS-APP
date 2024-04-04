@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <resources>
     <string name="app_name" translatable="false">SNS-APP</string>
     <string name="title_activity_main" translatable="false">MainActivity</string>
-  
-    <!--     login     -->
+
+    <string name="text_heart" translatable="false">️️️❤️</string>
+    <string name="text_clip" translatable="false">🙌</string>
+    <string name="numLikes">Likes</string>
+
+    <!--  로그인 페이지 string  -->
     <string name="tv_ps">Forgot password?</string>
     <string name="et_id">ID</string>
     <string name="btn_login">Log in</string>
@@ -15,20 +17,7 @@
     <string name="toast_wrong_id" translatable="false">Password does not match</string>
     <string name="toast_wrong_ps" translatable="false">Id does not match</string>
 
-    <!--     main     -->
-    <string name="tv_main_username">username</string>
-    <string name="tv_main_post_value">1,234</string>
-    <string name="tv_main_post_text">Posts</string>
-    <string name="tv_main_followers_value">5,678</string>
-    <string name="tv_main_followers_text">Followers</string>
-    <string name="tv_main_following_value">9,101</string>
-    <string name="tv_main_following_text">Following</string>
-    <string name="tv_main_category">Category/Genre text</string>
-    <string name="tv_main_bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt #hashtag</string>
-    <string name="tv_main_link">Link goes here</string>
-    <string name="btn_main_edit_profile">Edit profile</string>
-
-    <!--     signup     -->
+    <!--  feature/signup     -->
     <string name="tv_signup_welcome">Sign up to see photos and videos\nfrom your friends</string>
     <string name="tv_signup_or">OR</string>
     <string name="et_signup_mobile_number_or_email">Mobile Number or Email</string>
@@ -39,7 +28,7 @@
     <string name="tv_signup_agreement">By signing up, you agree to our Terms, Data\nPolicy and Cookies Policy</string>
     <string name="ts_signup_error">That\'s and error.</string>
 
-    <!--     my_page     -->
+    <!--  feature/mypage     -->
     <string name="btn_my_cancel">Cancel</string>
     <string name="btn_my_done">Done</string>
     <string name="btn_my_editProfileTitle">Edit Profile</string>
@@ -53,7 +42,7 @@
     <string name="toast_my_done">Your Information has been modified.</string>
     <string name="toast_my_cancel">Modification of information has been cancelled.</string>
 
-    <!--     deatil     -->
+    <!--  deatil 페이지 string  -->
     <string name="tv_detail_textHeart">️️️❤️</string>
     <string name="tv_detail_textClip">🙌</string>
     <string name="tv_detail_numLikes">Likes</string>
@@ -65,5 +54,6 @@
     <string name="tv_detail_days">days</string>
     <string name="tv_detail_hours">hours</string>
     <string name="tv_detail_minutes">minutes</string>
-    <string name="tv_detail_now">now</string> 
+    <string name="tv_detail_now">now</string>
+
 </resources>
