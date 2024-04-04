@@ -12,8 +12,10 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.R
 import com.agvber.sns_app.data.PreviewProvider
+import com.agvber.sns_app.model.Image
 import com.agvber.sns_app.model.Post
 import java.time.Duration
 import java.time.LocalDateTime
@@ -57,7 +59,7 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         val ivPostHeart = itemView.findViewById<ImageView>(R.id.iv_postHeart)
         val tvNumLikes = itemView.findViewById<TextView>(R.id.tv_numLikes)
         val firstNumLikes = PreviewProvider.posts[position].like
-        val likes = " " + itemView.context.getString(R.string.numLikes)
+        val likes = " " + itemView.context.getString(R.string.tv_detail_numLikes)
         var isLike = true
         ivPostHeart.setOnClickListener {
             if (isLike) {
@@ -99,8 +101,9 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
     }
 
     private fun setPostDataToUI(itemView: View, position: Int) {
-        val postData = PreviewProvider.posts[position]
-        val userData = PreviewProvider.users[0]
+        val userData = MemoryStorage.getUser()
+        val postData = data[position]
+//        val userData = PreviewProvider.users[0]
         itemView.findViewById<ImageView>(R.id.iv_mainImage).setImageResource(postData.image)
 
         val contentText = userData.name + " " + postData.content
@@ -113,7 +116,7 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         )
         itemView.findViewById<TextView>(R.id.tv_postContent).text = contentSpannableString
 
-        val likes = " " + itemView.context.getString(R.string.numLikes)
+        val likes = " " + itemView.context.getString(R.string.tv_detail_numLikes)
         itemView.findViewById<TextView>(R.id.tv_numLikes).text = postData.like.toString() + likes
 
         val currentTime = LocalDateTime.now()
@@ -125,16 +128,17 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         val timeText = buildString {
             when {
                 (daysDiff > 0) -> {
-                    if (daysDiff >= 30) append("${daysDiff / 30} months")
-                    else append("$daysDiff days ")
+                    if (daysDiff >= 30) append("${daysDiff / 30} ${itemView.context.getString(R.string.tv_detail_months)} ")
+                    else append("$daysDiff ${itemView.context.getString(R.string.tv_detail_days)} ")
                 }
 
-                (hourDiff > 0) -> append("$hourDiff hours ")
-                (minDiff > 0) -> append("$minDiff minutes ")
+                (hourDiff > 0) -> append("$hourDiff ${itemView.context.getString(R.string.tv_detail_hours)} ")
+                (minDiff > 0) -> append("$minDiff ${itemView.context.getString(R.string.tv_detail_minutes)} ")
             }
         }
-        if (timeText.isEmpty()) itemView.findViewById<TextView>(R.id.tv_postedTime).text = "now"
-        else itemView.findViewById<TextView>(R.id.tv_postedTime).text = "$timeText ago"
+        if (timeText.isEmpty()) itemView.findViewById<TextView>(R.id.tv_postedTime).text = itemView.context.getString(R.string.tv_detail_now)
+        else itemView.findViewById<TextView>(R.id.tv_postedTime).text =
+            "$timeText " + itemView.context.getString(R.string.tv_detail_ago)
 
         val sponsorText = itemView.findViewById<TextView>(R.id.tv_sponsor).text
         val sponsorSpannableString = SpannableString(sponsorText)
@@ -145,5 +149,21 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
             Spannable.SPAN_INCLUSIVE_INCLUSIVE
         )
         itemView.findViewById<TextView>(R.id.tv_sponsor).text = sponsorSpannableString
+
+        val profileImg1 = itemView.findViewById<ImageView>(R.id.iv_profileImage)
+        val profileImg2 = itemView.findViewById<ImageView>(R.id.iv_commentProfile_img)
+
+        when (userData.image) {
+            is Image.ImageDrawable -> {
+                val drawable = userData.image.drawable
+                profileImg1.setImageResource(drawable)
+                profileImg2.setImageResource(drawable)
+            }
+            is Image.ImageUri -> {
+                val uri = userData.image.uri
+                profileImg1.setImageURI(uri)
+                profileImg2.setImageURI(uri)
+            }
+        }
     }
 }
