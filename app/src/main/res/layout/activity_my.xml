@@ -29,7 +29,7 @@
         android:textColor="#262626"
         app:layout_constraintBottom_toBottomOf="@+id/view_gray"
         app:layout_constraintStart_toStartOf="@+id/view_gray" />
-  
+
     <TextView
         android:id="@+id/tv_editprofile"
         android:layout_width="wrap_content"
@@ -61,6 +61,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/img_round_myprofile"
+        android:clipToOutline="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_gray"
@@ -71,12 +73,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
+        android:onClick="changeProfilePhoto"
         android:text="@string/btn_my_changeProfile"
         android:textColor="#3897F0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_profile"
-        android:onClick="changeProfilePhoto"/>
+        app:layout_constraintTop_toBottomOf="@+id/img_profile" />
 
     <View
         android:id="@+id/view"
@@ -104,24 +106,22 @@
             android:id="@+id/tv_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/tv_my_name"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:text="@string/tv_my_name"
             android:textColor="#262626"
-            android:textSize="18sp"
-             />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/et_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
             android:layout_marginRight="10dp"
+            android:layout_weight="3"
             android:backgroundTint="#4A3C3C43"
-            android:nextFocusDown="@+id/et_id"
             android:hint="Text your name"
-             />
+            android:singleLine="true" />
 
     </LinearLayout>
 
@@ -143,20 +143,21 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_weight="1"
             android:text="@string/tv_my_id"
             android:textColor="#262626"
-            android:textSize="18sp"
-            android:layout_weight="1" />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/et_id"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#4A3C3C43"
-            android:hint=" "
             android:layout_marginRight="10dp"
             android:layout_weight="3"
-            android:enabled="false"/>
+            android:backgroundTint="#4A3C3C43"
+            android:enabled="false"
+            android:hint=" "
+            android:singleLine="true" />
 
     </LinearLayout>
 
@@ -176,22 +177,22 @@
             android:id="@+id/tv_bio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/tv_my_bio"
-            android:textColor="#262626"
-            android:textSize="18sp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/tv_my_bio"
+            android:textColor="#262626"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/et_bio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="3"
             android:backgroundTint="#4A3C3C43"
             android:hint="Text your bio"
-            android:layout_marginRight="10dp"
-            android:nextFocusDown="@+id/et_email"
-            android:layout_weight="3"/>
+            android:singleLine="true" />
 
     </LinearLayout>
 
@@ -211,22 +212,22 @@
             android:id="@+id/tv_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/tv_my_email"
-            android:textColor="#262626"
-            android:textSize="18sp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="@string/tv_my_email"
+            android:textColor="#262626"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/et_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="3"
             android:backgroundTint="#4A3C3C43"
             android:hint="Text your email"
-            android:layout_marginRight="10dp"
-            android:nextFocusDown="@+id/et_phone"
-            android:layout_weight="3"/>
+            android:singleLine="true" />
 
     </LinearLayout>
 
@@ -247,21 +248,22 @@
             android:id="@+id/tv_phone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/tv_my_phone"
-            android:textColor="#262626"
-            android:textSize="18sp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/tv_my_phone"
+            android:textColor="#262626"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/et_phone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="3"
             android:backgroundTint="#4A3C3C43"
             android:hint="Text your phone"
-            android:layout_marginRight="10dp"
-            android:layout_weight="3"/>
+            android:singleLine="true" />
 
 
     </LinearLayout>
@@ -272,9 +274,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
-        android:textSize="18sp"
         android:text="@string/btn_my_switchToLogin"
         android:textColor="#3897F0"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll_5" />
 
