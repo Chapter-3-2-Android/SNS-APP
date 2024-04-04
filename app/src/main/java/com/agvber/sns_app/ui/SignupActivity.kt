@@ -108,7 +108,6 @@ private fun SignupData.asExternalModel(): User {
         phoneNumber = phoneNumber,
         email = email,
         bio = "",
-        postDatas = PreviewProvider.posts,
         image = PreviewProvider.users.let { it[Random.nextInt(0, it.size)].image }
     )
 }

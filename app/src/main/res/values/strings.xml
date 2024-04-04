@@ -5,4 +5,15 @@
     <string name="text_heart">️️️❤️</string>
     <string name="text_clip">🙌</string>
     <string name="numLikes">Likes</string>
+    <string name="tv_main_username">username</string>
+    <string name="tv_main_post_value">1,234</string>
+    <string name="tv_main_post_text">Posts</string>
+    <string name="tv_main_followers_value">5,678</string>
+    <string name="tv_main_followers_text">Followers</string>
+    <string name="tv_main_following_value">9,101</string>
+    <string name="tv_main_following_text">Following</string>
+    <string name="tv_main_category">Category/Genre text</string>
+    <string name="tv_bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt #hashtag</string>
+    <string name="tv_link">Link goes here</string>
+    <string name="btn_main_edit_profile">Edit profile</string>
 </resources>

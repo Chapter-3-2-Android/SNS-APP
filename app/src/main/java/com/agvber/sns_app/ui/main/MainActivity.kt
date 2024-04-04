@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
     private fun initUserArea() {
         binding.run {
             tvUsernameTitle.text = user.name
-            tvPosts.text = posts.size.toString()
+            tvPostsValue.text = posts.size.toString()
             tvUsernameSub.text = user.name
             tvBio.text = user.bio
         }
