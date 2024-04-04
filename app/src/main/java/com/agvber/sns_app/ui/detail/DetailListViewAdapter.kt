@@ -2,8 +2,6 @@ package com.agvber.sns_app.ui.detail
 
 import android.content.Context
 import android.graphics.Typeface
-import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StyleSpan
@@ -14,8 +12,6 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.DrawableRes
-import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.R
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.model.Image
@@ -62,7 +58,7 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         val ivPostHeart = itemView.findViewById<ImageView>(R.id.iv_postHeart)
         val tvNumLikes = itemView.findViewById<TextView>(R.id.tv_numLikes)
         val firstNumLikes = PreviewProvider.posts[position].like
-        val likes = " " + itemView.context.getString(R.string.numLikes)
+        val likes = " " + itemView.context.getString(R.string.tv_detail_numLikes)
         var isLike = true
         ivPostHeart.setOnClickListener {
             if (isLike) {
@@ -120,7 +116,7 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         )
         itemView.findViewById<TextView>(R.id.tv_postContent).text = contentSpannableString
 
-        val likes = " " + itemView.context.getString(R.string.numLikes)
+        val likes = " " + itemView.context.getString(R.string.tv_detail_numLikes)
         itemView.findViewById<TextView>(R.id.tv_numLikes).text = postData.like.toString() + likes
 
         val currentTime = LocalDateTime.now()
@@ -142,7 +138,7 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         }
         if (timeText.isEmpty()) itemView.findViewById<TextView>(R.id.tv_postedTime).text = "now"
         else itemView.findViewById<TextView>(R.id.tv_postedTime).text =
-            "$timeText " + itemView.context.getString(R.string.detail_ago)
+            "$timeText " + itemView.context.getString(R.string.tv_detail_ago)
 
         val sponsorText = itemView.findViewById<TextView>(R.id.tv_sponsor).text
         val sponsorSpannableString = SpannableString(sponsorText)
