@@ -1,8 +1,35 @@
 <resources>
-    <string name="app_name">SNS-APP</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="app_name" translatable="false">SNS-APP</string>
+    <string name="title_activity_main" translatable="false">MainActivity</string>
+  
+    <string name="text_heart" translatable="false">️️️❤️</string>
+    <string name="text_clip" translatable="false">🙌</string>
+    <string name="numLikes">Likes</string>
 
-
+    <!--  feature/signup     -->
+    <string name="tv_signup_welcome">Sign up to see photos and videos\nfrom your friends</string>
+    <string name="tv_signup_or">OR</string>
+    <string name="et_signup_mobile_number_or_email">Mobile Number or Email</string>
+    <string name="et_signup_full_name">Full Name</string>
+    <string name="et_signup_id">ID</string>
+    <string name="et_signup_password">Password</string>
+    <string name="btn_signup_confirm">Sign up</string>
+    <string name="tv_signup_agreement">By signing up, you agree to our Terms, Data\nPolicy and Cookies Policy</string>
+    <string name="ts_signup_error">That\'s and error.</string>
+    
+    <!--  feature/mypage     -->
+    <string name="btn_my_cancel">Cancel</string>
+    <string name="btn_my_done">Done</string>
+    <string name="btn_my_editProfileTitle">Edit Profile</string>
+    <string name="btn_my_changeProfile">Change Profile photo</string>
+    <string name="btn_my_switchToLogin">Switch to Log-in Page</string>
+    <string name="tv_my_name">Name</string>
+    <string name="tv_my_id">Id</string>
+    <string name="tv_my_bio">Bio</string>
+    <string name="tv_my_email">Email</string>
+    <string name="tv_my_phone">Phone</string>
+    <string name="toast_my_done">Your Information has been modified.</string>
+    <string name="toast_my_cancel">Modification of information has been cancelled.</string>
 
     <!--  deatil 페이지 string  -->
     <string name="tv_detail_textHeart">️️️❤️</string>
@@ -17,7 +44,4 @@
     <string name="tv_detail_hours">hours</string>
     <string name="tv_detail_minutes">minutes</string>
     <string name="tv_detail_now">now</string>
-
-
-
 </resources>
