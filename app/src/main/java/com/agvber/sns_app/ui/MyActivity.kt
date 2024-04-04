@@ -1,23 +1,21 @@
-package com.agvber.sns_app
+package com.agvber.sns_app.ui
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import com.agvber.sns_app.data.PreviewProvider
+import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.databinding.ActivityMyBinding
 import com.agvber.sns_app.model.User
+import com.agvber.sns_app.ui.main.MainActivity
 
 class MyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyBinding
 
     val user: User by lazy {
-        MemoryStorage.setUser(PreviewProvider.users[0])
         MemoryStorage.getUser()
     }
 
@@ -100,9 +98,11 @@ class MyActivity : AppCompatActivity() {
     fun changeProfilePhoto(view: View) {
         pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
-    private val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
-        uri?.let {
-            binding.imgProfile.setImageURI(it)
+
+    private val pickMedia =
+        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+            uri?.let {
+                binding.imgProfile.setImageURI(it)
+            }
         }
-    }
 }
