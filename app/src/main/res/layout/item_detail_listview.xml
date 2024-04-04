@@ -15,9 +15,9 @@
 
         <!-- post image 위 -->
         <ImageView
-            android:id="@+id/iv_profileImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/iv_profileImage_ring"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:src="@drawable/story_ring"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -25,13 +25,27 @@
             android:layout_marginStart="14dp"
             android:layout_marginTop="7dp"/>
 
+        <ImageView
+            android:id="@+id/iv_profileImage"
+            app:layout_constraintTop_toTopOf="@id/iv_profileImage_ring"
+            app:layout_constraintBottom_toBottomOf="@id/iv_profileImage_ring"
+            app:layout_constraintStart_toStartOf="@id/iv_profileImage_ring"
+            app:layout_constraintEnd_toEndOf="@id/iv_profileImage_ring"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/img_profile2"
+            android:scaleType="centerCrop"
+            android:clipToOutline="true"
+            android:outlineProvider="background"
+            android:background="@drawable/clip_img_profile" />
+        
         <TextView
             android:id="@+id/tv_sponsor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ruffles\nSponsored"
-            app:layout_constraintStart_toEndOf="@id/iv_profileImage"
-            app:layout_constraintTop_toTopOf="@id/iv_profileImage"
+            android:text="@string/tv_detail_sponsor"
+            app:layout_constraintStart_toEndOf="@id/iv_profileImage_ring"
+            app:layout_constraintTop_toTopOf="@id/iv_profileImage_ring"
             android:layout_marginStart="7dp"/>
 
         <ImageView
@@ -51,7 +65,7 @@
             android:src="@drawable/img_main"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_profileImage"
+            app:layout_constraintTop_toBottomOf="@id/iv_profileImage_ring"
             android:layout_marginTop="7dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -107,7 +121,7 @@
             android:id="@+id/tv_numLikes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/numLikes"
+            android:text="@string/tv_detail_numLikes"
             app:layout_constraintStart_toStartOf="@id/tv_postContent"
             app:layout_constraintTop_toBottomOf="@id/iv_postHeart"
             android:layout_marginTop="10dp"
@@ -135,19 +149,21 @@
             app:layout_constraintBottom_toBottomOf="@id/tv_postContent"
             android:layout_marginEnd="-2dp"
             android:text="more"
-            android:visibility="visible"/>
+            android:textColor="@color/gray"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/tv_viewNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="view all ..."
+            android:text="@string/tv_detail_viewCnt"
             app:layout_constraintStart_toStartOf="@id/tv_postContent"
             app:layout_constraintTop_toBottomOf="@id/tv_postContent"
-            android:layout_marginTop="6dp"/>
+            android:layout_marginTop="6dp"
+            android:textColor="@color/gray"/>
 
         <ImageView
-            android:id="@+id/iv_commentProfile"
+            android:id="@+id/iv_commentProfile_ring"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/story_ring"
@@ -155,26 +171,40 @@
             app:layout_constraintTop_toBottomOf="@id/tv_viewNum"
             android:layout_marginTop="6dp"/>
 
+        <ImageView
+            android:id="@+id/iv_commentProfile_img"
+            app:layout_constraintTop_toTopOf="@id/iv_commentProfile_ring"
+            app:layout_constraintBottom_toBottomOf="@id/iv_commentProfile_ring"
+            app:layout_constraintStart_toStartOf="@id/iv_commentProfile_ring"
+            app:layout_constraintEnd_toEndOf="@id/iv_commentProfile_ring"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/img_profile2"
+            android:scaleType="centerCrop"
+            android:clipToOutline="true"
+            android:outlineProvider="background"
+            android:background="@drawable/clip_img_profile" />
         <EditText
             android:id="@+id/et_comment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Add a comment ..."
-            app:layout_constraintBottom_toBottomOf="@id/iv_commentProfile"
-            app:layout_constraintStart_toEndOf="@id/iv_commentProfile"
-            app:layout_constraintTop_toTopOf="@id/iv_commentProfile"
+            android:hint="@string/et_detail_etHint"
+            app:layout_constraintBottom_toBottomOf="@id/iv_commentProfile_ring"
+            app:layout_constraintStart_toEndOf="@id/iv_commentProfile_ring"
+            app:layout_constraintTop_toTopOf="@id/iv_commentProfile_ring"
             app:layout_constraintEnd_toStartOf="@id/tv_textHeart"
             android:background="@null"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"/>
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="4dp"
+            android:textColorHint="@color/gray" />
 
         <TextView
             android:id="@+id/tv_textHeart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_heart"
-            app:layout_constraintBottom_toBottomOf="@id/iv_commentProfile"
-            app:layout_constraintTop_toTopOf="@id/iv_commentProfile"
+            android:text="@string/tv_detail_textHeart"
+            app:layout_constraintBottom_toBottomOf="@id/iv_commentProfile_ring"
+            app:layout_constraintTop_toTopOf="@id/iv_commentProfile_ring"
             app:layout_constraintEnd_toStartOf="@id/tv_textClip"
             android:layout_marginEnd="14dp"/>
 
@@ -183,18 +213,18 @@
             android:id="@+id/tv_textClip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_clip"
-            app:layout_constraintBottom_toBottomOf="@id/iv_commentProfile"
+            android:text="@string/tv_detail_textClip"
+            app:layout_constraintBottom_toBottomOf="@id/iv_commentProfile_ring"
             app:layout_constraintEnd_toStartOf="@id/iv_commentAddreaction"
-            app:layout_constraintTop_toTopOf="@id/iv_commentProfile"
+            app:layout_constraintTop_toTopOf="@id/iv_commentProfile_ring"
             android:layout_marginEnd="14dp"/>
 
         <ImageView
             android:id="@+id/iv_commentAddreaction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/iv_commentProfile"
-            app:layout_constraintTop_toTopOf="@id/iv_commentProfile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_commentProfile_ring"
+            app:layout_constraintTop_toTopOf="@id/iv_commentProfile_ring"
             app:layout_constraintEnd_toEndOf="@id/iv_bookMark"
             android:src="@drawable/ic_text_addreaction"/>
 
@@ -204,9 +234,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/tv_postContent"
-            app:layout_constraintTop_toBottomOf="@id/iv_commentProfile"
+            app:layout_constraintTop_toBottomOf="@id/iv_commentProfile_ring"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="30 minutes ago"
+            android:text="@string/tv_detail_ago"
+            android:textColor="@color/gray"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="7dp"/>
 
