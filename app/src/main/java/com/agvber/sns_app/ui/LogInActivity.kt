@@ -42,13 +42,11 @@ class LogInActivity : AppCompatActivity() {
                     intent.putExtra("userID", userId)
 
                     startActivity(intent)
-                }
-                // 일치하지 않는다면, 비밀번호가 일치하지 않는다는 메시지를 띄운다.
-                else {
-                    Toast.makeText(this,(R.string.toast_wrong_id), Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, (R.string.ts_login_id), Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, (R.string.toast_wrong_ps), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, (R.string.ts_login_id), Toast.LENGTH_SHORT).show()
             }
         }
         binding.tvSignup.setOnClickListener {

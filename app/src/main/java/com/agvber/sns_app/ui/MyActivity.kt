@@ -3,7 +3,6 @@ package com.agvber.sns_app.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
@@ -11,11 +10,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.R
-import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivityMyBinding
 import com.agvber.sns_app.model.Image
 import com.agvber.sns_app.model.User
-import com.agvber.sns_app.ui.main.MainActivity
 
 class MyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyBinding
@@ -24,6 +21,14 @@ class MyActivity : AppCompatActivity() {
     val user: User by lazy {
         MemoryStorage.getUser()
     }
+
+    private val pickMedia =
+        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+            uri?.let {
+                binding.imgProfile.setImageURI(it)
+                profileUri = it
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,19 +84,15 @@ class MyActivity : AppCompatActivity() {
     private fun clickProfileChange() {
         binding.btnProfilechange.setOnClickListener {
             changeProfilePhoto(binding.imgProfile)
+            this.grantUriPermission(
+                this.packageName, profileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION
+            )
         }
     }
+
     fun changeProfilePhoto(view: View) {
         pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
-
-    private val pickMedia =
-        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
-            uri?.let {
-                binding.imgProfile.setImageURI(it)
-                profileUri = it
-            }
-        }
 
     private fun clickCancel() {
         binding.btnCancel.setOnClickListener {
@@ -106,11 +107,9 @@ class MyActivity : AppCompatActivity() {
         newEmail: String,
         newPhoneNumber: String,
     ) {
-
-        Log.d("pre. profileUri", profileUri.toString())
         this.grantUriPermission(
-            this.packageName, profileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        Log.d("post. profileUri", profileUri.toString())
+            this.packageName, profileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION
+        )
 
         with(user) {
             name = newName

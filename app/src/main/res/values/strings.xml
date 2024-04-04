@@ -5,15 +5,15 @@
     <string name="title_activity_main" translatable="false">MainActivity</string>
   
     <!--     login     -->
-    <string name="tv_ps">Forgot password?</string>
-    <string name="et_id">ID</string>
-    <string name="btn_login">Log in</string>
-    <string name="tv_or">Or</string>
-    <string name="et_password">Password</string>
-    <string name="tv_signup">Sign up</string>
-    <string name="tv_have">Don\'t have an acount?</string>
-    <string name="toast_wrong_id" translatable="false">Password does not match</string>
-    <string name="toast_wrong_ps" translatable="false">Id does not match</string>
+    <string name="tv_login_ps">Forgot password?</string>
+    <string name="et_login_id">ID</string>
+    <string name="btn_login_login">Log in</string>
+    <string name="tv_login_or">Or</string>
+    <string name="et_login_password">Password</string>
+    <string name="tv_login_signup">Sign up</string>
+    <string name="tv_login_have">Don\'t have an account?</string>
+    <string name="ts_login_id" >Password does not match</string>
+    <string name="ts_login_ps" >Id does not match</string>
 
     <!--     main     -->
     <string name="tv_main_username">username</string>
