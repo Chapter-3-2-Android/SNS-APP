@@ -11,11 +11,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.R
-import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivityMyBinding
 import com.agvber.sns_app.model.Image
 import com.agvber.sns_app.model.User
-import com.agvber.sns_app.ui.main.MainActivity
 
 class MyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyBinding
@@ -83,6 +81,7 @@ class MyActivity : AppCompatActivity() {
                 this.packageName, profileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
     }
+
     fun changeProfilePhoto(view: View) {
         pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
@@ -128,7 +127,5 @@ class MyActivity : AppCompatActivity() {
             startActivity(switchIntent)
         }
     }
-
-
 
 }

@@ -6,7 +6,7 @@ import androidx.annotation.DrawableRes
 data class User(
     val id: String,
     val password: String,
-    var image: Image, //val -> var로 수정
+    var image: Image,
     var name: String,
     var phoneNumber: String?,
     var email: String?,
