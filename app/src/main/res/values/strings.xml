@@ -12,5 +12,12 @@
     <string name="tv_detail_viewCnt">view all ...</string>
     <string name="et_detail_etHint">Add a comment ...</string>
     <string name="tv_detail_ago">ago</string>
+    <string name="tv_detail_months">months</string>
+    <string name="tv_detail_days">days</string>
+    <string name="tv_detail_hours">hours</string>
+    <string name="tv_detail_minutes">minutes</string>
+    <string name="tv_detail_now">now</string>
+
+
 
 </resources>

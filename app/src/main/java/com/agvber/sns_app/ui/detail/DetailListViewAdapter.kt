@@ -127,15 +127,15 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         val timeText = buildString {
             when {
                 (daysDiff > 0) -> {
-                    if (daysDiff >= 30) append("${daysDiff / 30} months")
-                    else append("$daysDiff days ")
+                    if (daysDiff >= 30) append("${daysDiff / 30} ${itemView.context.getString(R.string.tv_detail_months)} ")
+                    else append("$daysDiff ${itemView.context.getString(R.string.tv_detail_days)} ")
                 }
 
-                (hourDiff > 0) -> append("$hourDiff hours ")
-                (minDiff > 0) -> append("$minDiff minutes ")
+                (hourDiff > 0) -> append("$hourDiff ${itemView.context.getString(R.string.tv_detail_hours)} ")
+                (minDiff > 0) -> append("$minDiff ${itemView.context.getString(R.string.tv_detail_minutes)} ")
             }
         }
-        if (timeText.isEmpty()) itemView.findViewById<TextView>(R.id.tv_postedTime).text = "now"
+        if (timeText.isEmpty()) itemView.findViewById<TextView>(R.id.tv_postedTime).text = itemView.context.getString(R.string.tv_detail_now)
         else itemView.findViewById<TextView>(R.id.tv_postedTime).text =
             "$timeText " + itemView.context.getString(R.string.tv_detail_ago)
 
