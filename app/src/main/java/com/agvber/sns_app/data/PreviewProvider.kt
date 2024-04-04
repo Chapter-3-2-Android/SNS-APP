@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 
 object PreviewProvider {
 
-    val posts = listOf<Post>(
+    var posts = listOf<Post>(
         Post(
             userId = "test1",
             id = 1,

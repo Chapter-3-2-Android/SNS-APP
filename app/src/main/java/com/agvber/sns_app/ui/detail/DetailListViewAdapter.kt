@@ -153,16 +153,15 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         val profileImg1 = itemView.findViewById<ImageView>(R.id.iv_profileImage)
         val profileImg2 = itemView.findViewById<ImageView>(R.id.iv_commentProfile_img)
 
-        when (userData.image) {
+        val image = userData.image
+        when (image) {
             is Image.ImageDrawable -> {
-                val drawable = userData.image.drawable
-                profileImg1.setImageResource(drawable)
-                profileImg2.setImageResource(drawable)
+                profileImg1.setImageResource(image.drawable)
+                profileImg2.setImageResource(image.drawable)
             }
             is Image.ImageUri -> {
-                val uri = userData.image.uri
-                profileImg1.setImageURI(uri)
-                profileImg2.setImageURI(uri)
+                profileImg1.setImageURI(image.uri)
+                profileImg2.setImageURI(image.uri)
             }
         }
     }
