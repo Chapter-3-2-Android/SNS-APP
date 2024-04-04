@@ -113,7 +113,9 @@ class MyActivity : AppCompatActivity() {
             bio = newBio
             email = newEmail
             phoneNumber = newPhoneNumber
-            image = Image.ImageUri(profileUri!!)
+            if(profileUri != null){
+                image = Image.ImageUri(profileUri!!)
+            }
 
             MemoryStorage.setUser(user)
         }
@@ -122,6 +124,7 @@ class MyActivity : AppCompatActivity() {
     private fun clickSwitchtoLogin() {
         binding.btnSwitchtologin.setOnClickListener {
             val switchIntent = Intent(this, LogInActivity::class.java)
+            switchIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(switchIntent)
         }
     }

@@ -54,7 +54,7 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
     ) { //좋아요 누를 시 이벤트, tv_NumLikes 뒤에 string.xml에 정의해서 붙이기
         val ivPostHeart = itemView.findViewById<ImageView>(R.id.iv_postHeart)
         val tvNumLikes = itemView.findViewById<TextView>(R.id.tv_numLikes)
-        val firstNumLikes = PreviewProvider.posts[position].like
+        val firstNumLikes = data[position].like
         val likes = " " + itemView.context.getString(R.string.tv_detail_numLikes)
         var isLike = true
         ivPostHeart.setOnClickListener {
