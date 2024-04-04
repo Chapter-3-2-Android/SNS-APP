@@ -2,8 +2,13 @@
     <string name="app_name">SNS-APP</string>
     <string name="title_activity_main">MainActivity</string>
 
+    <!--  deatil 페이지 string  -->
+    <string name="tv_detail_textHeart">️️️❤️</string>
+    <string name="tv_detail_textClip">🙌</string>
+    <string name="tv_detail_numLikes">Likes</string>
+    <string name="tv_detail_sponsor">Ruffles\nSponsored</string>
+    <string name="tv_detail_viewCnt">view all ...</string>
+    <string name="et_detail_etHint">Add a comment ...</string>
+    <string name="tv_detail_ago">ago</string>
 
-    <string name="text_heart">️️️❤️</string>
-    <string name="text_clip">🙌</string>
-    <string name="numLikes">Likes</string>
 </resources>
