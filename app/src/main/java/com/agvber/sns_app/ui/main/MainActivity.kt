@@ -16,13 +16,15 @@ import com.agvber.sns_app.ui.detail.DetailActivity
 
 
 class MainActivity : AppCompatActivity() {
-    val user: User by lazy {
-        MemoryStorage.getUser()
-    }
+    lateinit var user: User
 
     val posts: List<Post> by lazy {
-        PreviewProvider.posts.filter {
-            it.userId == user.id
+        if (user.postDatas.size != 0) {
+            user.postDatas
+        } else {
+            PreviewProvider.posts.filter {
+                it.userId == user.id
+            }
         }
     }
 
@@ -37,9 +39,15 @@ class MainActivity : AppCompatActivity() {
         initView()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        user = MemoryStorage.getUser()
+        initUserProfileImage()
+    }
+
     private fun initView() {
         initUserArea()
-        initUserProfileImage()
         initButtons()
         initGridView()
     }
@@ -51,13 +59,16 @@ class MainActivity : AppCompatActivity() {
             val matchedUser = findMatchUserOrDefault(userid!!)
 
             MemoryStorage.setUser(matchedUser!!)
+            user = MemoryStorage.getUser()
             user.updatePostData()
         } else { // 로그인 페이지에서 userID 값을 넘겨받지 못한 경우 default 설정
             val dafauleUser = getDefaultUser()
 
             MemoryStorage.setUser(dafauleUser)
+            user = MemoryStorage.getUser()
             user.updatePostData()
         }
+
     }
 
     private fun findMatchUserOrDefault(userid: String): User {
@@ -105,7 +116,7 @@ class MainActivity : AppCompatActivity() {
             when (image) {
                 // is의 역할 -> 스마트 캐스팅 : 타입 검사 + 형변환
                 is Image.ImageDrawable -> civProfileImage.setImageResource(image.drawable)
-                is Image.ImageUri -> { } // civProfileImage.setImageURI(image.uri)
+                is Image.ImageUri -> civProfileImage.setImageURI(image.uri)
             }
         }
     }

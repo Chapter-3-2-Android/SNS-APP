@@ -1,7 +1,9 @@
 package com.agvber.sns_app.ui
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
@@ -11,11 +13,13 @@ import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.R
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivityMyBinding
+import com.agvber.sns_app.model.Image
 import com.agvber.sns_app.model.User
 import com.agvber.sns_app.ui.main.MainActivity
 
 class MyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyBinding
+    private var profileUri: Uri? = null
 
     val user: User by lazy {
         MemoryStorage.getUser()
@@ -42,6 +46,19 @@ class MyActivity : AppCompatActivity() {
                 etBio.setText(bio ?: "")
                 etEmail.setText(email ?: "")
                 etPhone.setText(phoneNumber ?: "")
+                initUserProfileImage()
+            }
+        }
+    }
+
+    private fun initUserProfileImage() {
+        val image = user.image
+
+        binding.run {
+            when (image) {
+                // is의 역할 -> 스마트 캐스팅 : 타입 검사 + 형변환
+                is Image.ImageDrawable -> imgProfile.setImageResource(image.drawable)
+                is Image.ImageUri -> imgProfile.setImageURI(image.uri)
             }
         }
     }
@@ -55,16 +72,28 @@ class MyActivity : AppCompatActivity() {
 
             editUserInfo(newName, newBio, newEmail, newPhoneNumber)
             Toast.makeText(this, getString(R.string.toast_my_done), Toast.LENGTH_SHORT).show()
-            val doneIntent = Intent(this, MainActivity::class.java)
-            startActivity(doneIntent)
+            finish()
         }
     }
 
     private fun clickProfileChange() {
         binding.btnProfilechange.setOnClickListener {
             changeProfilePhoto(binding.imgProfile)
+            this.grantUriPermission(
+                this.packageName, profileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
     }
+    fun changeProfilePhoto(view: View) {
+        pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+    }
+
+    private val pickMedia =
+        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+            uri?.let {
+                binding.imgProfile.setImageURI(it)
+                profileUri = it
+            }
+        }
 
     private fun clickCancel() {
         binding.btnCancel.setOnClickListener {
@@ -79,15 +108,18 @@ class MyActivity : AppCompatActivity() {
         newEmail: String,
         newPhoneNumber: String,
     ) {
-        user?.let {
-            user.name = newName
-            user.bio = newBio
-            user.email = newEmail
-            user.phoneNumber = newPhoneNumber
+        this.grantUriPermission(
+            this.packageName, profileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        with(user) {
+            name = newName
+            bio = newBio
+            email = newEmail
+            phoneNumber = newPhoneNumber
+            image = Image.ImageUri(profileUri!!)
+            Log.d("profileUri", profileUri!!.toString())
+
             MemoryStorage.setUser(user)
         }
-//            MemoryStorage.getUser()
-//            Log.d("debug", MemoryStorage.getUser().toString())
     }
 
     private fun clickSwitchtoLogin() {
@@ -97,14 +129,6 @@ class MyActivity : AppCompatActivity() {
         }
     }
 
-    fun changeProfilePhoto(view: View) {
-        pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
-    }
 
-    private val pickMedia =
-        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
-            uri?.let {
-                binding.imgProfile.setImageURI(it)
-            }
-        }
+
 }
