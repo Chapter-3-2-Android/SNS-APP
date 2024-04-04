@@ -8,6 +8,7 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.agvber.sns_app.MemoryStorage
+import com.agvber.sns_app.R
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivityMyBinding
 import com.agvber.sns_app.model.User
@@ -53,7 +54,7 @@ class MyActivity : AppCompatActivity() {
             val newPhoneNumber = binding.etPhone.text.toString()
 
             editUserInfo(newName, newBio, newEmail, newPhoneNumber)
-            Toast.makeText(this, "정보가 수정 되었습니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_my_done), Toast.LENGTH_SHORT).show()
             val doneIntent = Intent(this, MainActivity::class.java)
             startActivity(doneIntent)
         }
@@ -68,7 +69,7 @@ class MyActivity : AppCompatActivity() {
     private fun clickCancel() {
         binding.btnCancel.setOnClickListener {
             finish()
-            Toast.makeText(this, "정보 수정이 취소되었습니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_my_cancel), Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -10,6 +10,9 @@
     <string name="tv_my_bio">Bio</string>
     <string name="tv_my_email">Email</string>
     <string name="tv_my_phone">Phone</string>
+    <string name="toast_my_done">Your Information has been modified.</string>
+    <string name="toast_my_cancel">Modification of information has been cancelled.</string>
+
 
     <string name="app_name">SNS-APP</string>
     <string name="title_activity_main">MainActivity</string>
