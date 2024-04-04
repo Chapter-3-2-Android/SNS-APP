@@ -84,9 +84,6 @@ class MyActivity : AppCompatActivity() {
     private fun clickProfileChange() {
         binding.btnProfilechange.setOnClickListener {
             changeProfilePhoto(binding.imgProfile)
-            this.grantUriPermission(
-                this.packageName, profileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION
-            )
         }
     }
 
