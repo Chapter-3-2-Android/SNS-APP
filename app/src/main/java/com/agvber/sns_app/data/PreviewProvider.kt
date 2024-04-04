@@ -94,7 +94,7 @@ object PreviewProvider {
         )
     )
 
-    val users = listOf(
+    val users = mutableListOf(
         User(
             id = "test1",
             password = "test1pw",

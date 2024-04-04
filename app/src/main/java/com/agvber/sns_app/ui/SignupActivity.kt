@@ -29,7 +29,7 @@ class SignupActivity : AppCompatActivity() {
 
     private fun eventSuccess() {
         if (signUpData.checkStatus()) {
-            MemoryStorage.setUser(signUpData.asExternalModel())
+            PreviewProvider.users.add(signUpData.asExternalModel())
             finish()
         }
     }
