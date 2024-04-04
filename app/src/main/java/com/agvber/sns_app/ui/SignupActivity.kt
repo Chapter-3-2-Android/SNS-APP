@@ -38,7 +38,7 @@ class SignupActivity : AppCompatActivity() {
 
     private fun eventFail() {
         if (!signUpData.checkStatus()) {
-            Toast.makeText(this@SignupActivity, "에러가 발생하였습니다", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@SignupActivity, getString(R.string.ts_signup_error), Toast.LENGTH_SHORT).show()
         }
     }
 
