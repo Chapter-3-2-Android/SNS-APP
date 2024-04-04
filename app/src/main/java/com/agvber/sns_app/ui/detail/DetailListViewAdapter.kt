@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.R
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.model.Image
@@ -100,9 +101,9 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
     }
 
     private fun setPostDataToUI(itemView: View, position: Int) {
-//        val userData = MemoryStorage.getUser()
+        val userData = MemoryStorage.getUser()
         val postData = data[position]
-        val userData = PreviewProvider.users[0]
+//        val userData = PreviewProvider.users[0]
         itemView.findViewById<ImageView>(R.id.iv_mainImage).setImageResource(postData.image)
 
         val contentText = userData.name + " " + postData.content
