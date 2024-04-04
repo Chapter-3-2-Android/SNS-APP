@@ -124,6 +124,7 @@ class MyActivity : AppCompatActivity() {
     private fun clickSwitchtoLogin() {
         binding.btnSwitchtologin.setOnClickListener {
             val switchIntent = Intent(this, LogInActivity::class.java)
+            switchIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(switchIntent)
         }
     }
