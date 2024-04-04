@@ -1,8 +1,20 @@
 <resources>
+
+    <string name="btn_my_cancel">Cancel</string>
+    <string name="btn_my_done">Done</string>
+    <string name="btn_my_editProfileTitle">Edit Profile</string>
+    <string name="btn_my_changeProfile">Change Profile photo</string>
+    <string name="btn_my_switchToLogin">Switch to Log-in Page</string>
+    <string name="tv_my_name">Name</string>
+    <string name="tv_my_id">Id</string>
+    <string name="tv_my_bio">Bio</string>
+    <string name="tv_my_email">Email</string>
+    <string name="tv_my_phone">Phone</string>
+
     <string name="app_name">SNS-APP</string>
     <string name="title_activity_main">MainActivity</string>
-
     <string name="text_heart">️️️❤️</string>
     <string name="text_clip">🙌</string>
     <string name="numLikes">Likes</string>
+
 </resources>

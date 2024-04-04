@@ -8,6 +8,7 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.agvber.sns_app.MemoryStorage
+import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivityMyBinding
 import com.agvber.sns_app.model.User
 import com.agvber.sns_app.ui.main.MainActivity

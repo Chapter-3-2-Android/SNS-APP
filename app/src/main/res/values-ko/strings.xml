@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="btn_my_cancel">취소</string>
+    <string name="btn_my_done">완료</string>
+    <string name="btn_my_changeProfile">프로필 이미지 변경</string>
+    <string name="btn_my_switchToLogin">로그인 페이지로 이동</string>
+    <string name="tv_my_name">이름</string>
+    <string name="tv_my_id">아이디</string>
+    <string name="tv_my_bio">바이오</string>
+    <string name="tv_my_email">이메일</string>
+    <string name="app_name">SNS-APP</string>
+    <string name="tv_my_phone">전화번호</string>
+    <string name="btn_my_editProfileTitle">프로필 변경</string>
+
+</resources>
