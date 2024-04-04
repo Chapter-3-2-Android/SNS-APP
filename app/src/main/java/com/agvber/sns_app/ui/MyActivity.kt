@@ -3,7 +3,6 @@ package com.agvber.sns_app.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
@@ -22,6 +21,14 @@ class MyActivity : AppCompatActivity() {
     val user: User by lazy {
         MemoryStorage.getUser()
     }
+
+    private val pickMedia =
+        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+            uri?.let {
+                binding.imgProfile.setImageURI(it)
+                profileUri = it
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,22 +84,12 @@ class MyActivity : AppCompatActivity() {
     private fun clickProfileChange() {
         binding.btnProfilechange.setOnClickListener {
             changeProfilePhoto(binding.imgProfile)
-            this.grantUriPermission(
-                this.packageName, profileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
     }
 
     fun changeProfilePhoto(view: View) {
         pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
-
-    private val pickMedia =
-        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
-            uri?.let {
-                binding.imgProfile.setImageURI(it)
-                profileUri = it
-            }
-        }
 
     private fun clickCancel() {
         binding.btnCancel.setOnClickListener {
@@ -108,14 +105,15 @@ class MyActivity : AppCompatActivity() {
         newPhoneNumber: String,
     ) {
         this.grantUriPermission(
-            this.packageName, profileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            this.packageName, profileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION
+        )
+
         with(user) {
             name = newName
             bio = newBio
             email = newEmail
             phoneNumber = newPhoneNumber
             image = Image.ImageUri(profileUri!!)
-            Log.d("profileUri", profileUri!!.toString())
 
             MemoryStorage.setUser(user)
         }
@@ -127,5 +125,4 @@ class MyActivity : AppCompatActivity() {
             startActivity(switchIntent)
         }
     }
-
 }

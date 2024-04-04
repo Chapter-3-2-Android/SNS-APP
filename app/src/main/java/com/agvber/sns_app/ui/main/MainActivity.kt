@@ -43,11 +43,11 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
         user = MemoryStorage.getUser()
+        initUserArea()
         initUserProfileImage()
     }
 
     private fun initView() {
-        initUserArea()
         initButtons()
         initGridView()
     }
@@ -115,15 +115,15 @@ class MainActivity : AppCompatActivity() {
         binding.run {
             when (image) {
                 // is의 역할 -> 스마트 캐스팅 : 타입 검사 + 형변환
-                is Image.ImageDrawable -> civProfileImage.setImageResource(image.drawable)
-                is Image.ImageUri -> civProfileImage.setImageURI(image.uri)
+                is Image.ImageDrawable -> ivProfileImage.setImageResource(image.drawable)
+                is Image.ImageUri -> ivProfileImage.setImageURI(image.uri)
             }
         }
     }
 
     private fun initButtons() {
         binding.run {
-            arrayOf(civProfileImage, btnEditProfile).forEach {
+            arrayOf(ivProfileImage, btnEditProfile).forEach {
                 it.setOnClickListener { runMyPage() }
             }
         }

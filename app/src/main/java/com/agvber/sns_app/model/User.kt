@@ -15,6 +15,6 @@ data class User(
 )
 
 sealed interface Image {
-    data class ImageDrawable(@DrawableRes var drawable: Int): Image
-    data class ImageUri(val uri: Uri): Image
+    data class ImageDrawable(@DrawableRes val drawable: Int) : Image
+    data class ImageUri(val uri: Uri) : Image
 }

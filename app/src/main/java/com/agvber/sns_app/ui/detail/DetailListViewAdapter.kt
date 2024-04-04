@@ -1,4 +1,5 @@
 package com.agvber.sns_app.ui.detail
+
 import android.content.Context
 import android.graphics.Typeface
 import android.text.Spannable
@@ -18,6 +19,7 @@ import com.agvber.sns_app.model.Image
 import com.agvber.sns_app.model.Post
 import java.time.Duration
 import java.time.LocalDateTime
+
 class DetailListViewAdapter(context: Context, private val data: List<Post>) :
     ArrayAdapter<Post>(context, R.layout.item_detail_listview, data) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -33,6 +35,7 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         setPostDataToUI(itemView, position)
         return itemView
     }
+
     private fun commentReaction(itemView: View) { //댓글에서 하트, 박수 클릭 시 추가
         val et = itemView.findViewById<EditText>(R.id.et_comment)
         val tvHeart = itemView.findViewById<TextView>(R.id.tv_textHeart)
@@ -44,6 +47,7 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
             et.append(tvClip.text)
         }
     }
+
     private fun clickLike(
         itemView: View,
         position: Int
@@ -65,6 +69,7 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
             }
         }
     }
+
     private fun postContentMore(itemView: View) { // 게시된 글 더보기
         val tvPost = itemView.findViewById<TextView>(R.id.tv_postContent)
         val tvMorePost = itemView.findViewById<TextView>(R.id.tv_postContentMore)
@@ -86,6 +91,7 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
             }
         }
     }
+
     private fun setPostDataToUI(itemView: View, position: Int) {
         val userData = MemoryStorage.getUser()
         val postData = data[position]
@@ -113,11 +119,13 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
                     if (daysDiff >= 30) append("${daysDiff / 30} ${itemView.context.getString(R.string.tv_detail_months)} ")
                     else append("$daysDiff ${itemView.context.getString(R.string.tv_detail_days)} ")
                 }
+
                 (hourDiff > 0) -> append("$hourDiff ${itemView.context.getString(R.string.tv_detail_hours)} ")
                 (minDiff > 0) -> append("$minDiff ${itemView.context.getString(R.string.tv_detail_minutes)} ")
             }
         }
-        if (timeText.isEmpty()) itemView.findViewById<TextView>(R.id.tv_postedTime).text = itemView.context.getString(R.string.tv_detail_now)
+        if (timeText.isEmpty()) itemView.findViewById<TextView>(R.id.tv_postedTime).text =
+            itemView.context.getString(R.string.tv_detail_now)
         else itemView.findViewById<TextView>(R.id.tv_postedTime).text =
             "$timeText " + itemView.context.getString(R.string.tv_detail_ago)
         val sponsorText = itemView.findViewById<TextView>(R.id.tv_sponsor).text
@@ -131,12 +139,15 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
         itemView.findViewById<TextView>(R.id.tv_sponsor).text = sponsorSpannableString
         val profileImg1 = itemView.findViewById<ImageView>(R.id.iv_profileImage)
         val profileImg2 = itemView.findViewById<ImageView>(R.id.iv_commentProfile_img)
+
         val image = userData.image
+
         when (image) {
             is Image.ImageDrawable -> {
                 profileImg1.setImageResource(image.drawable)
                 profileImg2.setImageResource(image.drawable)
             }
+
             is Image.ImageUri -> {
                 profileImg1.setImageURI(image.uri)
                 profileImg2.setImageURI(image.uri)

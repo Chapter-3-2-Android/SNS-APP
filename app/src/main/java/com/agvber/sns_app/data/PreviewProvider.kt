@@ -7,7 +7,6 @@ import com.agvber.sns_app.model.User
 import java.time.LocalDateTime
 
 object PreviewProvider {
-
     val posts = listOf<Post>(
         Post(
             userId = "test1",
