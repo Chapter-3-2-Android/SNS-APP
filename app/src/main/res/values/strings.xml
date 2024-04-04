@@ -5,7 +5,7 @@
 
     <string name="text_heart" translatable="false">️️️❤️</string>
     <string name="text_clip" translatable="false">🙌</string>
-    <string name="numLikes">Likes</string>
+    <string name="numLikes" translatable="false">Likes</string>
 
     <!--  메인 페이지  -->
     <string name="tv_main_username">username</string>
