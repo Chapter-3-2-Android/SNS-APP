@@ -1,8 +1,18 @@
 <resources>
-    <string name="app_name">SNS-APP</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="app_name" translatable="false">SNS-APP</string>
+    <string name="title_activity_main" translatable="false">MainActivity</string>
 
-    <string name="text_heart">️️️❤️</string>
-    <string name="text_clip">🙌</string>
+    <string name="text_heart" translatable="false">️️️❤️</string>
+    <string name="text_clip" translatable="false">🙌</string>
     <string name="numLikes">Likes</string>
+
+    <string name="tv_signup_welcome">Sign up to see photos and videos\nfrom your friends</string>
+    <string name="tv_signup_or">OR</string>
+    <string name="et_signup_mobile_number_or_email">Mobile Number or Email</string>
+    <string name="et_signup_full_name">Full Name</string>
+    <string name="et_signup_id">ID</string>
+    <string name="et_signup_password">Password</string>
+    <string name="btn_signup_confirm">Sign up</string>
+    <string name="tv_signup_agreement">By signing up, you agree to our Terms, Data\nPolicy and Cookies Policy</string>
+    <string name="ts_signup_error">That\'s and error.</string>
 </resources>

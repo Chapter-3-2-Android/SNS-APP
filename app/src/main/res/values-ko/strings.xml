@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tv_signup_welcome">친구들의 사진과 동영상을 보려면\n가입하세요.</string>
+    <string name="tv_signup_or">또는</string>
+    <string name="et_signup_mobile_number_or_email">휴대폰 번호 또는 이메일 주소</string>
+    <string name="et_signup_full_name">성명</string>
+    <string name="et_signup_id">아이디</string>
+    <string name="et_signup_password">비밀번호</string>
+    <string name="btn_signup_confirm">가입</string>
+    <string name="tv_signup_agreement">가입하면 Instagram의 약관, 데이터 정책 및 쿠폰\n정책에 동의하게 됩니다.</string>
+    <string name="ts_signup_error">에러가 발생하였습니다.</string>
+
+</resources>
