@@ -38,7 +38,11 @@ class SignupActivity : AppCompatActivity() {
 
     private fun eventFail() {
         if (!signUpData.checkStatus()) {
-            Toast.makeText(this@SignupActivity, getString(R.string.ts_signup_error), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this@SignupActivity,
+                getString(R.string.ts_signup_error),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -101,7 +105,7 @@ private data class SignupData(
 private fun SignupData.asExternalModel(userId: String): User {
     val postDatas = PreviewProvider.posts
         .shuffled()
-        .slice(0..< Random.nextInt(4, PreviewProvider.posts.size))
+        .slice(0..<Random.nextInt(4, PreviewProvider.posts.size))
         .map { it.copy(userId = userId) }
 
     return User(
@@ -111,6 +115,7 @@ private fun SignupData.asExternalModel(userId: String): User {
         phoneNumber = phoneNumber,
         email = email,
         bio = "",
+        postDatas = postDatas,
         image = PreviewProvider.users.let { it[Random.nextInt(0, it.size)].image }
     )
 }

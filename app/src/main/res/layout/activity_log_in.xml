@@ -134,6 +134,4 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_have"
         app:layout_constraintEnd_toStartOf="@+id/tv_or" />
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

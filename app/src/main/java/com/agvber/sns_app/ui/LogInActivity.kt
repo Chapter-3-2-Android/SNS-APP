@@ -10,7 +10,7 @@ import com.agvber.sns_app.databinding.ActivityLogInBinding
 import com.agvber.sns_app.ui.main.MainActivity
 
 class LogInActivity : AppCompatActivity() {
-    private lateinit var  binding: ActivityLogInBinding
+    private lateinit var binding: ActivityLogInBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +42,8 @@ class LogInActivity : AppCompatActivity() {
                     intent.putExtra("userID", userId)
 
                     startActivity(intent)
-                }
-                else {
-                    Toast.makeText(this,(R.string.ts_login_id), Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, (R.string.ts_login_id), Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(this, (R.string.ts_login_id), Toast.LENGTH_SHORT).show()
