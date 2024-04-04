@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.R
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.model.Post
@@ -99,8 +100,8 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
     }
 
     private fun setPostDataToUI(itemView: View, position: Int) {
-        val postData = PreviewProvider.posts[position]
-        val userData = PreviewProvider.users[0]
+        val postData = MemoryStorage.getUser().postDatas[position]
+        val userData = MemoryStorage.getUser()
         itemView.findViewById<ImageView>(R.id.iv_mainImage).setImageResource(postData.image)
 
         val contentText = userData.name + " " + postData.content
@@ -134,7 +135,8 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
             }
         }
         if (timeText.isEmpty()) itemView.findViewById<TextView>(R.id.tv_postedTime).text = "now"
-        else itemView.findViewById<TextView>(R.id.tv_postedTime).text = "$timeText ago"
+        else itemView.findViewById<TextView>(R.id.tv_postedTime).text =
+            "$timeText " + itemView.context.getString(R.string.detail_ago)
 
         val sponsorText = itemView.findViewById<TextView>(R.id.tv_sponsor).text
         val sponsorSpannableString = SpannableString(sponsorText)
