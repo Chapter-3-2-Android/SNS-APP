@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <!--  feature/main  -->
+    <!--     login     -->
+    <string name="tv_ps">비밀번호를 잊으셨나요?</string>
+    <string name="et_id">아이디</string>
+    <string name="btn_login">로그인</string>
+    <string name="tv_or">또는</string>
+    <string name="et_password">비밀번호</string>
+    <string name="tv_signup">가입하기</string>
+    <string name="tv_have">계정이 없으신가요?</string>
+    <string name="toast_wrong_id">비밀번호가 일치하지 않습니다</string>
+    <string name="toast_wrong_ps">아이디가 일치하지 않습니다</string>
+  
+    <!--     main     -->
     <string name="tv_main_username">닉네임</string>
     <string name="tv_main_post_value">1,234</string>
     <string name="tv_main_post_text">포스트</string>
@@ -14,7 +25,7 @@
     <string name="tv_main_link">링크로 이동</string>
     <string name="btn_main_edit_profile">프로필 수정</string>
 
-    <!--  feature/signup     -->
+    <!--     signup     -->
     <string name="tv_signup_welcome">친구들의 사진과 동영상을 보려면\n가입하세요.</string>
     <string name="tv_signup_or">또는</string>
     <string name="et_signup_mobile_number_or_email">휴대폰 번호 또는 이메일 주소</string>
@@ -24,8 +35,8 @@
     <string name="btn_signup_confirm">가입</string>
     <string name="tv_signup_agreement">가입하면 Instagram의 약관, 데이터 정책 및 쿠폰\n정책에 동의하게 됩니다.</string>
     <string name="ts_signup_error">에러가 발생하였습니다.</string>
-  
-    <!--  feature/my_page     -->
+
+    <!--     my_page     -->
     <string name="btn_my_cancel">취소</string>
     <string name="btn_my_done">완료</string>
     <string name="btn_my_changeProfile">프로필 이미지 변경</string>
@@ -39,8 +50,8 @@
     <string name="btn_my_editProfileTitle">프로필 변경</string>
     <string name="toast_my_done">정보가 수정되었습니다.</string>
     <string name="toast_my_cancel">정보 수정이 취소되었습니다.</string>
-  
-    <!--  feature/deatil     -->
+
+    <!--     deatil     -->
     <string name="tv_detail_textHeart">️️️❤️</string>
     <string name="tv_detail_textClip">🙌</string>
     <string name="tv_detail_numLikes">좋아요</string>
