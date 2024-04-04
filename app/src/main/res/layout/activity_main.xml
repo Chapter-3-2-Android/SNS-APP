@@ -55,12 +55,14 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <!--    Username     -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_profile"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cl_username_main">
 
@@ -70,8 +72,9 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:src="@drawable/story_ring"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!--    Posts, Followers, Following   -->
             <ImageView
@@ -213,7 +216,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!--    Username     -->
         <TextView
             android:id="@+id/tv_username_sub"
             android:layout_width="match_parent"
