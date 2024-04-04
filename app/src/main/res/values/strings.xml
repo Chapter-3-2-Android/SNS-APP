@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SNS-APP</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="app_name" translatable="false">SNS-APP</string>
+    <string name="title_activity_main" translatable="false">MainActivity</string>
 
-    <string name="text_heart">️️️❤️</string>
-    <string name="text_clip">🙌</string>
+    <string name="text_heart" translatable="false">️️️❤️</string>
+    <string name="text_clip" translatable="false">🙌</string>
     <string name="numLikes">Likes</string>
 
     <!--  메인 페이지  -->

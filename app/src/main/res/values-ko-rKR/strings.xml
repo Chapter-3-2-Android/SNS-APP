@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  메인 페이지  -->
+    <string name="tv_main_username">닉네임</string>
+    <string name="tv_main_post_value">1,234</string>
+    <string name="tv_main_post_text">포스트</string>
+    <string name="tv_main_followers_value">5,678</string>
+    <string name="tv_main_followers_text">팔로워</string>
+    <string name="tv_main_following_value">9,101</string>
+    <string name="tv_main_following_text">팔로잉</string>
+    <string name="tv_main_category">카테고리/Genre text</string>
+    <string name="tv_main_bio">오늘은 어디로 떠날까? #travel</string>
+    <string name="tv_main_link">링크로 이동</string>
+    <string name="btn_main_edit_profile">프로필 수정</string>
+</resources>
