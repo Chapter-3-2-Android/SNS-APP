@@ -194,9 +194,9 @@
             app:layout_constraintTop_toTopOf="@id/iv_commentProfile_ring"
             app:layout_constraintEnd_toStartOf="@id/tv_textHeart"
             android:background="@null"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="12dp"
             android:layout_marginEnd="4dp"
-            android:textColorHint="@color/gray"/>
+            android:textColorHint="@color/gray" />
 
         <TextView
             android:id="@+id/tv_textHeart"

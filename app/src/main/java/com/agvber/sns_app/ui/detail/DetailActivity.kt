@@ -18,6 +18,7 @@ class DetailActivity : AppCompatActivity() {
 
         val listView = binding.lvDetail
         listView.adapter = DetailListViewAdapter(this, MemoryStorage.getUser().postDatas)
+//        listView.adapter = DetailListViewAdapter(this, PreviewProvider.posts)
 
 
         listView.requestFocusFromTouch()
