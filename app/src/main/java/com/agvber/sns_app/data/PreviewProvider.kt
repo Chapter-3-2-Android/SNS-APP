@@ -1,6 +1,7 @@
 package com.agvber.sns_app.data
 
 import com.agvber.sns_app.R
+import com.agvber.sns_app.model.Image
 import com.agvber.sns_app.model.Post
 import com.agvber.sns_app.model.User
 import java.time.LocalDateTime
@@ -98,32 +99,29 @@ object PreviewProvider {
         User(
             id = "test1",
             password = "test1pw",
-            image = R.drawable.img_profile1,
+            image = Image.ImageDrawable(R.drawable.img_profile1),
             name = "임희진",
             phoneNumber = "010-1234-9876",
             email = null,
             bio = "Hi",
-            postDatas = posts
         ),
         User(
             id = "test2",
             password = "test2pw",
-            image = R.drawable.img_profile2,
+            image = Image.ImageDrawable(R.drawable.img_profile2),
             name = "양동원",
             phoneNumber = "010-2234-7876",
             email = "example@gmail.com",
             bio = null,
-            postDatas = posts
         ),
         User(
             id = "test3",
             password = "test3pw",
-            image = R.drawable.img_profile3,
+            image = Image.ImageDrawable(R.drawable.img_profile3),
             name = "김태영",
             phoneNumber = "010-1234-9876",
             email = null,
             bio = "안녕",
-            postDatas = posts
         )
     )
 }

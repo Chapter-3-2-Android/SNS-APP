@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
-import com.agvber.sns_app.MemoryStorage
+import com.agvber.sns_app.R
 import com.agvber.sns_app.data.PreviewProvider
 import com.agvber.sns_app.databinding.ActivitySignupBinding
 import com.agvber.sns_app.model.User
@@ -16,6 +16,8 @@ class SignupActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.horizon_enter, R.anim.horizon_none)
+
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
