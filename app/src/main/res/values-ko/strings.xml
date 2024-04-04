@@ -1,0 +1,12 @@
+
+<resources>
+    <string name="tv_ps">비밀번호를 잊으셨나요?</string>
+    <string name="et_id">아이디</string>
+    <string name="btn_login">로그인</string>
+    <string name="tv_or">또는</string>
+    <string name="et_password">비밀번호</string>
+    <string name="tv_signup">가입하기</string>
+    <string name="tv_have">계정이 없으신가요?</string>
+    <string name="toast_wrong_id" translatable="false">비밀번호가 일치하지 않습니다</string>
+    <string name="toast_wrong_ps" translatable="false">아이디가 일치하지 않습니다</string>
+</resources>
