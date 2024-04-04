@@ -10,7 +10,7 @@ import com.agvber.sns_app.databinding.ActivityLogInBinding
 import com.agvber.sns_app.ui.main.MainActivity
 
 class LogInActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLogInBinding
+    private lateinit var  binding: ActivityLogInBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
