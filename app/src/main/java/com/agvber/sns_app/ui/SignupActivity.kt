@@ -101,7 +101,7 @@ private data class SignupData(
 private fun SignupData.asExternalModel(userId: String): User {
     val postDatas = PreviewProvider.posts
         .shuffled()
-        .slice(0..Random.nextInt(4, PreviewProvider.posts.size))
+        .slice(0..< Random.nextInt(4, PreviewProvider.posts.size))
         .map { it.copy(userId = userId) }
 
     return User(
