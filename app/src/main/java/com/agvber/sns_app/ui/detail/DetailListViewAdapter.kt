@@ -2,6 +2,8 @@ package com.agvber.sns_app.ui.detail
 
 import android.content.Context
 import android.graphics.Typeface
+import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StyleSpan
@@ -12,9 +14,11 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import com.agvber.sns_app.MemoryStorage
 import com.agvber.sns_app.R
 import com.agvber.sns_app.data.PreviewProvider
+import com.agvber.sns_app.model.Image
 import com.agvber.sns_app.model.Post
 import java.time.Duration
 import java.time.LocalDateTime
@@ -100,8 +104,10 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
     }
 
     private fun setPostDataToUI(itemView: View, position: Int) {
-        val postData = MemoryStorage.getUser().postDatas[position]
-        val userData = MemoryStorage.getUser()
+//        val postData = MemoryStorage.getUser().postDatas[position]
+//        val userData = MemoryStorage.getUser()
+        val postData = PreviewProvider.posts[position]
+        val userData = PreviewProvider.users[0]
         itemView.findViewById<ImageView>(R.id.iv_mainImage).setImageResource(postData.image)
 
         val contentText = userData.name + " " + postData.content
@@ -147,5 +153,21 @@ class DetailListViewAdapter(context: Context, private val data: List<Post>) :
             Spannable.SPAN_INCLUSIVE_INCLUSIVE
         )
         itemView.findViewById<TextView>(R.id.tv_sponsor).text = sponsorSpannableString
+
+        val profileImg1 = itemView.findViewById<ImageView>(R.id.iv_profileImage)
+        val profileImg2 = itemView.findViewById<ImageView>(R.id.iv_commentProfile_img)
+
+        when (userData.image) {
+            is Image.ImageDrawable -> {
+                val drawable = userData.image.drawable
+                profileImg1.setImageResource(drawable)
+                profileImg2.setImageResource(drawable)
+            }
+            is Image.ImageUri -> {
+                val uri = userData.image.uri
+                profileImg1.setImageURI(uri)
+                profileImg2.setImageURI(uri)
+            }
+        }
     }
 }
