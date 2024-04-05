@@ -64,6 +64,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_gray"
+        android:clipToOutline="true"
+        android:background="@drawable/clip_img_profile"
         app:srcCompat="@drawable/img_profile2" />
 
     <TextView
