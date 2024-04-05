@@ -61,7 +61,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
-        android:background="@drawable/clip_img_profile"
+        android:background="@drawable/img_round_myprofile"
         android:clipToOutline="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +122,7 @@
             android:layout_weight="3"
             android:backgroundTint="#4A3C3C43"
             android:hint="Text your name"
-            android:nextFocusDown="@+id/et_id" />
+            android:singleLine="true" />
 
     </LinearLayout>
 
@@ -157,7 +157,8 @@
             android:layout_weight="3"
             android:backgroundTint="#4A3C3C43"
             android:enabled="false"
-            android:hint=" " />
+            android:hint=" "
+            android:singleLine="true" />
 
     </LinearLayout>
 
@@ -192,7 +193,7 @@
             android:layout_weight="3"
             android:backgroundTint="#4A3C3C43"
             android:hint="Text your bio"
-            android:nextFocusDown="@+id/et_email" />
+            android:singleLine="true" />
 
     </LinearLayout>
 
@@ -227,7 +228,7 @@
             android:layout_weight="3"
             android:backgroundTint="#4A3C3C43"
             android:hint="Text your email"
-            android:nextFocusDown="@+id/et_phone" />
+            android:singleLine="true" />
 
     </LinearLayout>
 
@@ -262,7 +263,8 @@
             android:layout_marginRight="10dp"
             android:layout_weight="3"
             android:backgroundTint="#4A3C3C43"
-            android:hint="Text your phone" />
+            android:hint="Text your phone"
+            android:singleLine="true" />
 
 
     </LinearLayout>
