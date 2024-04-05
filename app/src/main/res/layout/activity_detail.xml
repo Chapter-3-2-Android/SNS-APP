@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="14dp"
-        android:src="@drawable/ic_heart_none"
+        android:src="@drawable/ic_heart"
         app:layout_constraintBottom_toBottomOf="@id/iv_topLogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/iv_topLogo" />
