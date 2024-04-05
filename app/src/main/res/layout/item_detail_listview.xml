@@ -83,7 +83,7 @@
             android:id="@+id/iv_postHeart"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:src="@drawable/ic_heart_none"
+            android:src="@drawable/ic_heart"
             app:layout_constraintStart_toStartOf="@id/tv_postContent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="10dp"/>

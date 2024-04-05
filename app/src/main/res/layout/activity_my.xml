@@ -66,7 +66,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_gray"
-        app:srcCompat="@drawable/img_profile2" />
+        app:srcCompat="@drawable/img_profile2"
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/btn_profilechange"
