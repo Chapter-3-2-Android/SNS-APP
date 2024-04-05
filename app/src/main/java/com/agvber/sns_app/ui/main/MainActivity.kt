@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initGridView() {
-        val postAdapter = PostAdapter(this, posts)
+        val postAdapter = PostAdapter(posts)
         binding.gvPosts.adapter = postAdapter
 
         binding.gvPosts.onItemClickListener = OnItemClickListener { parent, view, position, id ->
